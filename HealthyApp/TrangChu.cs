@@ -1,5 +1,6 @@
 ﻿
 using System.Data;
+using System.Dynamic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace HealthyApp
@@ -25,6 +26,8 @@ namespace HealthyApp
 
         void tailai()
         {
+
+            //labelChuaTaoThucDon.Visible = false;
             String time = "Sang";
             DataTable dt = new DataTable();
             dt = conn.LayDuLieu(truyvan(time));
@@ -35,14 +38,65 @@ namespace HealthyApp
             time = "Toi";
             dt = conn.LayDuLieu(truyvan(time));
             dataGridToi.DataSource = dt;
+
             conn.renameDTV(dataGridSang);
             conn.renameDTV(dataGridTrua);
             conn.renameDTV(dataGridToi);
+
+            buttonSang.Location = new Point(408, 27);
+            buttonTrua.Location = new Point(408, 156);
+            buttonToi.Location = new Point(408, 285);
+
+            chuacothucdon(dataGridSang, buttonSang, labelSang);
+            chuacothucdon(dataGridTrua, buttonTrua, labelTrua);
+            chuacothucdon(dataGridToi, buttonToi, labelToi);
+
+        }
+
+        Label labelSang = new Label();
+        Label labelTrua = new Label();
+        Label labelToi = new Label();
+        Pen pen = new Pen(Color.Red, 1);
+        Graphics e;
+        void chuacothucdon(DataGridView a, Button b, Label label)
+        {
+            int x = 0;
+            x = b.Location.X - 320;
+            int y = 0;
+            y = b.Location.Y + 80;
+            e = this.CreateGraphics();
+
+            if (a.Rows.Count <= 0)
+            {
+                a.Visible = false;
+                //labelChuaTaoThucDon.Visible = true;
+
+                label.Text = "Chưa có thực đơn ! Tạo mới ngay";
+                label.AutoSize = true;
+                label.Font = new Font("", 14);
+                label.Location = new Point(x, y - 40);
+                label.Visible = true;
+                label.ForeColor = Color.Green;
+                this.Controls.Add(label);
+                b.Location = new Point(x, y);
+                b.Size = new Size(300, 30);
+                b.Font = new Font("", 10);
+                e.DrawLine(pen, x + 10, y + 50, x + 290, y + 50);
+            }
+            else
+            {
+                this.Controls.Remove(label);
+                b.Location = new Point(x + 320, y - 80);
+                b.Size = new Size(75, 23);
+                b.Font = new Font("", 9);
+                e.Clear(Color.White);
+            }
         }
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
             dateTimeTrangChu.Value = DateTime.Now;
+            tailai();
         }
 
         private void dateTimeTrangChu_ValueChanged(object sender, EventArgs e)
@@ -75,6 +129,30 @@ namespace HealthyApp
         private void buttonToi_Click(object sender, EventArgs e)
         {
             buttonClick("Toi");
+        }
+
+        void dgvclick()
+        {
+            dataGridSang.BorderStyle = BorderStyle.None;
+            dataGridTrua.BorderStyle = BorderStyle.None;
+            dataGridToi.BorderStyle = BorderStyle.None;
+        }
+        private void dataGridSang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvclick();
+            dataGridSang.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void dataGridTrua_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvclick();
+            dataGridTrua.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void dataGridToi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvclick();
+            dataGridToi.BorderStyle = BorderStyle.FixedSingle;
         }
     }
 }

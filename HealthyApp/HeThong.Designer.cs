@@ -87,6 +87,7 @@
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
             Name = "HeThong";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Healthy App";
             Load += HeThong_Load;
             menuStrip1.ResumeLayout(false);

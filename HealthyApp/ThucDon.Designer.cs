@@ -74,33 +74,42 @@
             // 
             dataGridThucdon.AllowUserToAddRows = false;
             dataGridThucdon.AllowUserToDeleteRows = false;
+            dataGridThucdon.AllowUserToResizeRows = false;
+            dataGridThucdon.BorderStyle = BorderStyle.None;
             dataGridThucdon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridThucdon.Location = new Point(277, 73);
             dataGridThucdon.MultiSelect = false;
             dataGridThucdon.Name = "dataGridThucdon";
             dataGridThucdon.ReadOnly = true;
+            dataGridThucdon.RowHeadersVisible = false;
             dataGridThucdon.RowTemplate.Height = 25;
             dataGridThucdon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridThucdon.Size = new Size(352, 216);
             dataGridThucdon.TabIndex = 9;
             dataGridThucdon.DataSourceChanged += dataGridThucdon_DataSourceChanged;
             dataGridThucdon.CellClick += dataGridThucdon_CellClick;
+            dataGridThucdon.CellContentClick += dataGridThucdon_CellContentClick;
             // 
             // dataGridNguyenLieu
             // 
             dataGridNguyenLieu.AllowUserToAddRows = false;
             dataGridNguyenLieu.AllowUserToDeleteRows = false;
+            dataGridNguyenLieu.AllowUserToResizeColumns = false;
+            dataGridNguyenLieu.AllowUserToResizeRows = false;
+            dataGridNguyenLieu.BorderStyle = BorderStyle.None;
             dataGridNguyenLieu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridNguyenLieu.ColumnHeadersVisible = false;
             dataGridNguyenLieu.Location = new Point(17, 97);
             dataGridNguyenLieu.MultiSelect = false;
             dataGridNguyenLieu.Name = "dataGridNguyenLieu";
             dataGridNguyenLieu.ReadOnly = true;
+            dataGridNguyenLieu.RowHeadersVisible = false;
             dataGridNguyenLieu.RowTemplate.Height = 25;
             dataGridNguyenLieu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridNguyenLieu.Size = new Size(240, 192);
             dataGridNguyenLieu.TabIndex = 10;
             dataGridNguyenLieu.CellClick += dataGridNguyenLieu_CellClick;
+            dataGridNguyenLieu.CellContentClick += dataGridNguyenLieu_CellContentClick;
             // 
             // buttonThem
             // 
@@ -126,15 +135,21 @@
             // 
             dataGridChitiet.AllowUserToAddRows = false;
             dataGridChitiet.AllowUserToDeleteRows = false;
+            dataGridChitiet.AllowUserToResizeColumns = false;
+            dataGridChitiet.AllowUserToResizeRows = false;
+            dataGridChitiet.BorderStyle = BorderStyle.None;
             dataGridChitiet.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridChitiet.Location = new Point(12, 316);
             dataGridChitiet.MultiSelect = false;
             dataGridChitiet.Name = "dataGridChitiet";
             dataGridChitiet.ReadOnly = true;
+            dataGridChitiet.RowHeadersVisible = false;
             dataGridChitiet.RowTemplate.Height = 25;
             dataGridChitiet.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridChitiet.Size = new Size(617, 117);
             dataGridChitiet.TabIndex = 15;
+            dataGridChitiet.CellClick += dataGridChitiet_CellClick;
+            dataGridChitiet.CellContentClick += dataGridChitiet_CellContentClick;
             // 
             // label2
             // 

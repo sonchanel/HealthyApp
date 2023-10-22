@@ -38,6 +38,7 @@ namespace HealthyApp
         }
         public void renameDTV(DataGridView a)
         {
+            a.Visible = true;
             //a.Columns["Tenthucdon"].HeaderCell.Value = "Tên thực đơn";
             a.Columns["Tennguyenlieu"].HeaderCell.Value = "Món ăn";
             a.Columns["Soluong"].HeaderCell.Value = "Số lượng";

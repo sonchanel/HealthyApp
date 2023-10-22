@@ -35,6 +35,7 @@
             dataGridToi = new DataGridView();
             buttonToi = new Button();
             dateTimeTrangChu = new DateTimePicker();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridSang).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridTrua).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridToi).BeginInit();
@@ -52,21 +53,35 @@
             // 
             // dataGridSang
             // 
+            dataGridSang.AllowUserToAddRows = false;
+            dataGridSang.AllowUserToDeleteRows = false;
+            dataGridSang.BorderStyle = BorderStyle.None;
             dataGridSang.EditMode = DataGridViewEditMode.EditOnF2;
             dataGridSang.Location = new Point(12, 56);
             dataGridSang.Name = "dataGridSang";
+            dataGridSang.ReadOnly = true;
+            dataGridSang.RowHeadersVisible = false;
             dataGridSang.RowTemplate.Height = 25;
+            dataGridSang.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridSang.Size = new Size(471, 94);
             dataGridSang.TabIndex = 2;
+            dataGridSang.CellClick += dataGridSang_CellClick;
             // 
             // dataGridTrua
             // 
+            dataGridTrua.AllowUserToAddRows = false;
+            dataGridTrua.AllowUserToDeleteRows = false;
+            dataGridTrua.BorderStyle = BorderStyle.None;
             dataGridTrua.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridTrua.Location = new Point(12, 185);
             dataGridTrua.Name = "dataGridTrua";
+            dataGridTrua.ReadOnly = true;
+            dataGridTrua.RowHeadersVisible = false;
             dataGridTrua.RowTemplate.Height = 25;
+            dataGridTrua.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridTrua.Size = new Size(471, 94);
             dataGridTrua.TabIndex = 4;
+            dataGridTrua.CellClick += dataGridTrua_CellClick;
             // 
             // buttonTrua
             // 
@@ -80,12 +95,19 @@
             // 
             // dataGridToi
             // 
+            dataGridToi.AllowUserToAddRows = false;
+            dataGridToi.AllowUserToDeleteRows = false;
+            dataGridToi.BorderStyle = BorderStyle.None;
             dataGridToi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridToi.Location = new Point(12, 314);
             dataGridToi.Name = "dataGridToi";
+            dataGridToi.ReadOnly = true;
+            dataGridToi.RowHeadersVisible = false;
             dataGridToi.RowTemplate.Height = 25;
+            dataGridToi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridToi.Size = new Size(471, 94);
             dataGridToi.TabIndex = 6;
+            dataGridToi.CellClick += dataGridToi_CellClick;
             // 
             // buttonToi
             // 
@@ -106,11 +128,23 @@
             dateTimeTrangChu.TabIndex = 7;
             dateTimeTrangChu.ValueChanged += dateTimeTrangChu_ValueChanged;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(189, 10);
+            label1.Name = "label1";
+            label1.Size = new Size(97, 25);
+            label1.TabIndex = 8;
+            label1.Text = "Thực đơn";
+            // 
             // TrangChu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(495, 450);
+            Controls.Add(label1);
             Controls.Add(dateTimeTrangChu);
             Controls.Add(dataGridToi);
             Controls.Add(buttonToi);
@@ -128,6 +162,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridTrua).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridToi).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -138,5 +173,6 @@
         private DataGridView dataGridToi;
         private Button buttonToi;
         private DateTimePicker dateTimeTrangChu;
+        private Label label1;
     }
 }

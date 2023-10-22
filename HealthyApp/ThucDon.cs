@@ -67,6 +67,12 @@ namespace HealthyApp
             reload();
             buttonreload();
         }
+        void dgvclick()
+        {
+            dataGridChitiet.BorderStyle = BorderStyle.None;
+            dataGridNguyenLieu.BorderStyle = BorderStyle.None;
+            dataGridThucdon.BorderStyle = BorderStyle.None;
+        }
         private void ThucDon_Load(object sender, EventArgs e)
         {
             buttonLammoi_Click(sender, e);
@@ -74,21 +80,25 @@ namespace HealthyApp
         String title = "";
         private void dataGridNguyenLieu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dgvclick();
+            dataGridNguyenLieu.BorderStyle = BorderStyle.FixedSingle;
             buttonreload();
             buttonThem.Enabled = true;
-            numericSoluong.Enabled=true;
+            numericSoluong.Enabled = true;
             title = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
             chitietload(title);
         }
         int Index;
         private void dataGridThucdon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            dgvclick();
+            dataGridThucdon.BorderStyle = BorderStyle.FixedSingle;
             if (e.RowIndex >= 0)
             {
                 buttonreload();
                 buttonXoa.Enabled = true;
                 buttonSua.Enabled = true;
-                numericSoluong.Enabled=true;
+                numericSoluong.Enabled = true;
                 Index = Convert.ToInt32(dataGridThucdon.Rows[e.RowIndex].Cells["Id"].Value);
                 String nguyenlieu = (string)dataGridThucdon.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
                 numericSoluong.Value = Convert.ToDecimal(dataGridThucdon.Rows[e.RowIndex].Cells["Soluong"].Value);
@@ -187,6 +197,25 @@ namespace HealthyApp
             {
                 textBoxTongCalo.Text += " kcal";
             }
+        }
+
+        private void dataGridNguyenLieu_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridThucdon_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void dataGridChitiet_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void dataGridChitiet_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dgvclick();
+            dataGridChitiet.BorderStyle = BorderStyle.FixedSingle;
         }
     }
 
