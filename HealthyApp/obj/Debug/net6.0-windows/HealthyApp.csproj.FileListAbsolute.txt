@@ -88,3 +88,25 @@ C:\Users\SSS\source\repos\sonchanel\HealthyApp\HealthyApp\bin\Debug\net6.0-windo
 C:\Users\SSS\source\repos\sonchanel\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.CopyComplete
 C:\Users\SSS\source\repos\sonchanel\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.genruntimeconfig.cache
 C:\Users\SSS\source\repos\sonchanel\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\ref\HealthyApp.dll
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.exe
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.deps.json
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.runtimeconfig.json
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.dll
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.pdb
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.AssemblyReference.cache
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ChiTietCongThuc.resources
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.CongThuc.resources
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.HeThong.resources
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ThucDon.resources
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.CopyComplete
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.dll
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\refint\HealthyApp.dll
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.pdb
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.genruntimeconfig.cache
+D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\ref\HealthyApp.dll

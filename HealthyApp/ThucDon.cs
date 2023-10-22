@@ -76,6 +76,7 @@ namespace HealthyApp
         {
             buttonreload();
             buttonThem.Enabled = true;
+            numericSoluong.Enabled=true;
             title = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
             chitietload(title);
         }
@@ -87,6 +88,7 @@ namespace HealthyApp
                 buttonreload();
                 buttonXoa.Enabled = true;
                 buttonSua.Enabled = true;
+                numericSoluong.Enabled=true;
                 Index = Convert.ToInt32(dataGridThucdon.Rows[e.RowIndex].Cells["Id"].Value);
                 String nguyenlieu = (string)dataGridThucdon.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
                 numericSoluong.Value = Convert.ToDecimal(dataGridThucdon.Rows[e.RowIndex].Cells["Soluong"].Value);
