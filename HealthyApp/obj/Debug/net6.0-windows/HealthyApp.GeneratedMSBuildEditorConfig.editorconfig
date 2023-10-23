@@ -14,4 +14,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = HealthyApp
+<<<<<<< HEAD
 build_property.ProjectDir = D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\
+=======
+build_property.ProjectDir = D:\Study\.Net\Do AN\HealthyApp\HealthyApp\
+>>>>>>> 7393c65d6c3b528266440c70edc08b61101daeaf
