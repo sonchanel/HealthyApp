@@ -16,7 +16,7 @@ namespace HealthyApp
         {
             InitializeComponent();
         }
-
+        //Thay doi thu code
         private void HeThong_Load(object sender, EventArgs e)
         {
             trangChủToolStripMenuItem_Click(sender, e);
@@ -33,6 +33,11 @@ namespace HealthyApp
             trangChu.Dock = DockStyle.Fill;
             this.ClientSize = trangChu.Size;
             trangChu.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

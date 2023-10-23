@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\.Net\\Do AN\\HealthyApp\\HealthyApp\\HealthyApp.csproj": {}
+    "D:\\ShinZ\\DoAnLTnet\\githubcode\\HealthyAppWindow\\HealthyApp\\HealthyApp.csproj": {}
   },
   "projects": {
-    "D:\\Study\\.Net\\Do AN\\HealthyApp\\HealthyApp\\HealthyApp.csproj": {
+    "D:\\ShinZ\\DoAnLTnet\\githubcode\\HealthyAppWindow\\HealthyApp\\HealthyApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\.Net\\Do AN\\HealthyApp\\HealthyApp\\HealthyApp.csproj",
+        "projectUniqueName": "D:\\ShinZ\\DoAnLTnet\\githubcode\\HealthyAppWindow\\HealthyApp\\HealthyApp.csproj",
         "projectName": "HealthyApp",
-        "projectPath": "D:\\Study\\.Net\\Do AN\\HealthyApp\\HealthyApp\\HealthyApp.csproj",
-        "packagesPath": "C:\\Users\\SSS\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\.Net\\Do AN\\HealthyApp\\HealthyApp\\obj\\",
+        "projectPath": "D:\\ShinZ\\DoAnLTnet\\githubcode\\HealthyAppWindow\\HealthyApp\\HealthyApp.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\ShinZ\\DoAnLTnet\\githubcode\\HealthyAppWindow\\HealthyApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\SSS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,7 +64,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
