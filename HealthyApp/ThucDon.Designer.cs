@@ -176,13 +176,13 @@
             label4.AutoSize = true;
             label4.Location = new Point(17, 445);
             label4.Name = "label4";
-            label4.Size = new Size(95, 15);
+            label4.Size = new Size(54, 15);
             label4.TabIndex = 20;
-            label4.Text = "Số lượng (*100g)";
+            label4.Text = "Số lượng";
             // 
             // numericSoluong
             // 
-            numericSoluong.Location = new Point(118, 443);
+            numericSoluong.Location = new Point(77, 443);
             numericSoluong.Name = "numericSoluong";
             numericSoluong.Size = new Size(131, 23);
             numericSoluong.TabIndex = 21;

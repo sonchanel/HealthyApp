@@ -56,15 +56,16 @@ namespace HealthyApp
         Label labelSang = new Label();
         Label labelTrua = new Label();
         Label labelToi = new Label();
-        Pen pen = new Pen(Color.Red, 1);
-        Graphics e;
+        //Pen pen = new Pen(Color.Red, 30);
+        //Pen penw = new Pen(Color.White, 30);
+        //Graphics sang,trua,toi;
         void chuacothucdon(DataGridView a, Button b, Label label)
         {
             int x = 0;
             x = b.Location.X - 320;
             int y = 0;
-            y = b.Location.Y + 80;
-            e = this.CreateGraphics();
+            y = b.Location.Y + 65;
+            //e = this.CreateGraphics();
 
             if (a.Rows.Count <= 0)
             {
@@ -81,22 +82,23 @@ namespace HealthyApp
                 b.Location = new Point(x, y);
                 b.Size = new Size(300, 30);
                 b.Font = new Font("", 10);
-                e.DrawLine(pen, x + 10, y + 50, x + 290, y + 50);
+                //e.DrawLine(pen, x + 10, y + 50, x + 290, y + 50);
+                //Console.WriteLine(e.DpiX);
+                //Console.WriteLine(e.DpiY);
             }
             else
             {
                 this.Controls.Remove(label);
-                b.Location = new Point(x + 320, y - 80);
+                b.Location = new Point(x + 320, y - 65);
                 b.Size = new Size(75, 23);
                 b.Font = new Font("", 9);
-                e.Clear(Color.White);
+                //e.DrawLine(penw, x + 10, y + 50, x + 290, y + 50);
             }
         }
 
         private void TrangChu_Load(object sender, EventArgs e)
         {
             dateTimeTrangChu.Value = DateTime.Now;
-            tailai();
         }
 
         private void dateTimeTrangChu_ValueChanged(object sender, EventArgs e)

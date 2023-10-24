@@ -59,6 +59,7 @@
             côngThứcToolStripMenuItem.Name = "côngThứcToolStripMenuItem";
             côngThứcToolStripMenuItem.Size = new Size(75, 20);
             côngThứcToolStripMenuItem.Text = "Công thức";
+            côngThứcToolStripMenuItem.Click += côngThứcToolStripMenuItem_Click;
             // 
             // chỉSốCơThểToolStripMenuItem
             // 
@@ -91,6 +92,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Healthy App";
             Load += HeThong_Load;
+            SizeChanged += HeThong_SizeChanged;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);

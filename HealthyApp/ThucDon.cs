@@ -44,10 +44,13 @@ namespace HealthyApp
 
             conn.renameDTV(dataGridThucdon);
 
-            dataGridNguyenLieu.DataSource = conn.LayDuLieu(string.Format("select Tennguyenlieu from Nguyenlieu where Tennguyenlieu not in (SELECT Tennguyenlieu FROM Thucdon where Buaan = '{0}' and Thoigian = '{1}')"
+            dataGridNguyenLieu.DataSource = conn.LayDuLieu(string.Format("select Tennguyenlieu,Donvi from Nguyenlieu where Tennguyenlieu not in (SELECT Tennguyenlieu FROM Thucdon where Buaan = '{0}' and Thoigian = '{1}')"
                                                             , time, dateTimeTrangChu.Value));
             dataGridNguyenLieu.Columns["Tennguyenlieu"].HeaderCell.Value = "Nguyên liệu";
-            dataGridNguyenLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridNguyenLieu.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
+            dataGridNguyenLieu.Columns["Tennguyenlieu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridNguyenLieu.Columns["Donvi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            //dataGridNguyenLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dataGridChitiet.Columns.Clear();
         }
@@ -110,10 +113,10 @@ namespace HealthyApp
         void chitietload(String nguyenlieu)
         {
             dataGridChitiet.Columns.Clear();
-            dataGridChitiet.DataSource = conn.LayDuLieu(string.Format("select Tenchiso,Luongchiso,Donvi from Chisodinhduong,Nguyenlieu where Nguyenlieu.Id=Chisodinhduong.Id and Tennguyenlieu like N'{0}' ORDER BY Tenchiso"
+            dataGridChitiet.DataSource = conn.LayDuLieu(string.Format("select Tenchiso,Luongchiso,Chisodinhduong.Donvi from Chisodinhduong,Nguyenlieu where Nguyenlieu.Id=Chisodinhduong.Id and Tennguyenlieu like N'{0}' ORDER BY Tenchiso"
                 , nguyenlieu));
             dataGridChitiet.Columns["Tenchiso"].HeaderCell.Value = "Chỉ số";
-            dataGridChitiet.Columns["Luongchiso"].HeaderCell.Value = "Khối lượng (trong 100g)";
+            dataGridChitiet.Columns["Luongchiso"].HeaderCell.Value = "Khối lượng";
             dataGridChitiet.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
 
             dataGridChitiet.Columns.Add("Tong", "Tổng");

@@ -55,6 +55,7 @@
             // 
             dataGridSang.AllowUserToAddRows = false;
             dataGridSang.AllowUserToDeleteRows = false;
+            dataGridSang.BackgroundColor = SystemColors.Control;
             dataGridSang.BorderStyle = BorderStyle.None;
             dataGridSang.EditMode = DataGridViewEditMode.EditOnF2;
             dataGridSang.Location = new Point(12, 56);
@@ -71,6 +72,7 @@
             // 
             dataGridTrua.AllowUserToAddRows = false;
             dataGridTrua.AllowUserToDeleteRows = false;
+            dataGridTrua.BackgroundColor = SystemColors.Control;
             dataGridTrua.BorderStyle = BorderStyle.None;
             dataGridTrua.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridTrua.Location = new Point(12, 185);
@@ -97,6 +99,7 @@
             // 
             dataGridToi.AllowUserToAddRows = false;
             dataGridToi.AllowUserToDeleteRows = false;
+            dataGridToi.BackgroundColor = SystemColors.Control;
             dataGridToi.BorderStyle = BorderStyle.None;
             dataGridToi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridToi.Location = new Point(12, 314);
@@ -121,6 +124,7 @@
             // 
             // dateTimeTrangChu
             // 
+            dateTimeTrangChu.CustomFormat = "";
             dateTimeTrangChu.Format = DateTimePickerFormat.Short;
             dateTimeTrangChu.Location = new Point(12, 12);
             dateTimeTrangChu.Name = "dateTimeTrangChu";
