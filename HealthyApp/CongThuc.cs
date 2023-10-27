@@ -54,5 +54,13 @@ namespace HealthyApp
             int tuychon = Convert.ToInt32(dataGridCongThuc.Rows[e.RowIndex].Cells["Id_congthuc"].Value);
             chitietformload(tuychon);
         }
+
+
+        private void buttonXoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

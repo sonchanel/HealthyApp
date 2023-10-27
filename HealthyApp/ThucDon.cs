@@ -132,8 +132,9 @@ namespace HealthyApp
         {
             for (int i = 0; i < dataGridChitiet.Rows.Count; i++)
             {
-                int tong;
-                tong = Convert.ToInt32(dataGridChitiet.Rows[i].Cells["Luongchiso"].Value) * Convert.ToInt32(numericSoluong.Value);
+                double tong;
+                tong = (double)dataGridChitiet.Rows[i].Cells["Luongchiso"].Value * (double)numericSoluong.Value;
+                tong = Math.Round(tong, 2);
                 dataGridChitiet.Rows[i].Cells["Tong"].Value = tong;
             }
         }
@@ -147,10 +148,12 @@ namespace HealthyApp
         {
             MessageBoxButtons messageBoxButtons = MessageBoxButtons.YesNo;
             DialogResult ketqua = MessageBox.Show("Bạn có chắc chắn xóa ?", "Xác nhận xóa", messageBoxButtons);
-            if (ketqua == DialogResult.Yes) { }
-            String truyvan = string.Format("DELETE FROM Thucdon WHERE Id = '{0}'"
-                , Index);
-            conn.Thucthi(truyvan);
+            if (ketqua == DialogResult.Yes)
+            {
+                String truyvan = string.Format("DELETE FROM Thucdon WHERE Id = '{0}'"
+                    , Index);
+                conn.Thucthi(truyvan);
+            }
             buttonLammoi_Click(sender, e);
         }
 

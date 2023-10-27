@@ -54,7 +54,7 @@ namespace HealthyApp
             Center(this);
         }
 
-        private void côngThứcToolStripMenuItem_Click(object sender, EventArgs e)
+        void côngThứcToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (ActiveMdiChild != null)
             {

@@ -31,6 +31,7 @@
             dataGridCongThuc = new DataGridView();
             label1 = new Label();
             buttonCongthuc = new Button();
+            buttonXoa = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridCongThuc).BeginInit();
             SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             dataGridCongThuc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridCongThuc.Size = new Size(434, 347);
             dataGridCongThuc.TabIndex = 11;
-            dataGridCongThuc.CellClick += dataGridCongThuc_CellClick;
+            dataGridCongThuc.CellDoubleClick += dataGridCongThuc_CellClick;
             // 
             // label1
             // 
@@ -72,11 +73,22 @@
             buttonCongthuc.UseVisualStyleBackColor = true;
             buttonCongthuc.Click += buttonCongthuc_Click;
             // 
+            // buttonXoa
+            // 
+            buttonXoa.Location = new Point(257, 47);
+            buttonXoa.Name = "buttonXoa";
+            buttonXoa.Size = new Size(108, 23);
+            buttonXoa.TabIndex = 15;
+            buttonXoa.Text = "Xóa công thức";
+            buttonXoa.UseVisualStyleBackColor = true;
+            buttonXoa.Click += buttonXoa_Click;
+            // 
             // CongThuc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(458, 460);
+            Controls.Add(buttonXoa);
             Controls.Add(buttonCongthuc);
             Controls.Add(label1);
             Controls.Add(dataGridCongThuc);
@@ -94,5 +106,6 @@
         private DataGridView dataGridCongThuc;
         private Label label1;
         private Button buttonCongthuc;
+        private Button buttonXoa;
     }
 }
