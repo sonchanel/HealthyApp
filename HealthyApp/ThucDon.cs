@@ -44,10 +44,21 @@ namespace HealthyApp
 
             conn.renameDTV(dataGridThucdon);
 
-            dataGridNguyenLieu.DataSource = conn.LayDuLieu(string.Format("select Tennguyenlieu,Donvi from Nguyenlieu where Tennguyenlieu not in (SELECT Tennguyenlieu FROM Thucdon where Buaan = '{0}' and Thoigian = '{1}')"
+            DataTable nguyenlieu = conn.LayDuLieu(string.Format("select Tennguyenlieu,Donvi from Nguyenlieu where Tennguyenlieu not in (SELECT Tennguyenlieu FROM Thucdon where Buaan = '{0}' and Thoigian = '{1}')"
                                                             , time, dateTimeTrangChu.Value));
-            dataGridNguyenLieu.Columns["Tennguyenlieu"].HeaderCell.Value = "Nguyên liệu";
+            DataTable congthuc = conn.LayDuLieu(string.Format("select Tencongthuc as Tennguyenlieu,Donvi from Congthuc "
+                                                            ));
+            congthuc.Columns.Add("Type",typeof(string));
+            congthuc.Columns["Type"].DefaultValue = "0";
+            for(int i = 0;i < congthuc.Rows.Count; i++)
+            {
+                congthuc.Rows[i]["Type"] = "1";
+            }
+            congthuc.Merge(nguyenlieu);
+            dataGridNguyenLieu.DataSource = congthuc;
+            dataGridNguyenLieu.Columns["Tennguyenlieu"].HeaderCell.Value = "Món ăn";
             dataGridNguyenLieu.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
+            dataGridNguyenLieu.Columns["Type"].Visible = false;
             dataGridNguyenLieu.Columns["Tennguyenlieu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridNguyenLieu.Columns["Donvi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             //dataGridNguyenLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -89,7 +100,12 @@ namespace HealthyApp
             buttonThem.Enabled = true;
             numericSoluong.Enabled = true;
             title = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
-            chitietload(title);
+            string type = "0";
+            if ((string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Type"].Value == "1")
+            {
+                type = "1";
+            }
+            chitietload(title,type);
         }
         int Index;
         private void dataGridThucdon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -106,15 +122,28 @@ namespace HealthyApp
                 String nguyenlieu = (string)dataGridThucdon.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
                 numericSoluong.Value = Convert.ToDecimal(dataGridThucdon.Rows[e.RowIndex].Cells["Soluong"].Value);
                 TextBoxGhichu.Text = (string)dataGridThucdon.Rows[e.RowIndex].Cells["Ghichu"].Value;
-                chitietload(nguyenlieu);
+                string type = "0";
+                if ((string)dataGridThucdon.Rows[e.RowIndex].Cells["Type"].Value == "1")
+                {
+                    type = "1";
+                }
+                chitietload(nguyenlieu, type);
             }
         }
 
-        void chitietload(String nguyenlieu)
+        void chitietload(String nguyenlieu, string type)
         {
             dataGridChitiet.Columns.Clear();
-            dataGridChitiet.DataSource = conn.LayDuLieu(string.Format("select Tenchiso,Luongchiso,Chisodinhduong.Donvi from Chisodinhduong,Nguyenlieu where Nguyenlieu.Id=Chisodinhduong.Id and Tennguyenlieu like N'{0}' ORDER BY Tenchiso"
-                , nguyenlieu));
+            if (type == "0")
+            {
+                dataGridChitiet.DataSource = conn.LayDuLieu(string.Format("select Tenchiso,Luongchiso,Chisodinhduong.Donvi from Chisodinhduong,Nguyenlieu where Nguyenlieu.Id=Chisodinhduong.Id and Tennguyenlieu like N'{0}' ORDER BY Tenchiso"
+                    , nguyenlieu));
+            }
+            else
+            {
+                dataGridChitiet.DataSource = conn.LayDuLieu(string.Format("select Tenchiso,Sum(Luongchiso*Soluong) as Luongchiso,Chisodinhduong.Donvi from Chisodinhduong,Chitietcongthuc,Congthuc where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu=Chisodinhduong.Id and Tencongthuc like N'{0}' group by Tenchiso,Chisodinhduong.Donvi ORDER BY Tenchiso"
+                    , nguyenlieu));
+            }
             dataGridChitiet.Columns["Tenchiso"].HeaderCell.Value = "Chỉ số";
             dataGridChitiet.Columns["Luongchiso"].HeaderCell.Value = "Khối lượng";
             dataGridChitiet.Columns["Donvi"].HeaderCell.Value = "Đơn vị";

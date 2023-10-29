@@ -12,7 +12,7 @@ namespace HealthyApp
     internal class KetNoi
     {
         SqlConnection conn;
-        string str = "Data Source=DESKTOP-5E2M2M8\\SON;Initial Catalog=HealthyApp;Integrated Security=True";
+        string str = "Data Source=localhost;Initial Catalog=HealthyApp;Integrated Security=True";
         public KetNoi()
         {
             conn = new SqlConnection(str);

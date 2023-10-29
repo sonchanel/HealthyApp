@@ -266,7 +266,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(74, 20);
+            label3.Location = new Point(74, 19);
             label3.Name = "label3";
             label3.Size = new Size(104, 21);
             label3.TabIndex = 35;
@@ -308,7 +308,6 @@
             dataGridNguyenLieu.AllowUserToResizeRows = false;
             dataGridNguyenLieu.BorderStyle = BorderStyle.None;
             dataGridNguyenLieu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridNguyenLieu.ColumnHeadersVisible = false;
             dataGridNguyenLieu.Location = new Point(7, 44);
             dataGridNguyenLieu.MultiSelect = false;
             dataGridNguyenLieu.Name = "dataGridNguyenLieu";

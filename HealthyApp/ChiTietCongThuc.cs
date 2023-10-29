@@ -45,6 +45,10 @@ namespace HealthyApp
                 dataGridNguyenLieu.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
                 dataGridNguyenLieu.Columns["Tennguyenlieu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridNguyenLieu.Columns["Donvi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                for (int i = 0; i < dataGridChitiet.Columns.Count; i++)
+                {
+                    dataGridNguyenLieu.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
             }
         }
 
@@ -59,6 +63,10 @@ namespace HealthyApp
                 dataGridNguyenlieuCT.Columns["Id_nguyenlieu"].Visible = false;
                 dataGridNguyenlieuCT.Columns["Tennguyenlieu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridNguyenlieuCT.Columns["Soluong"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                for (int i = 0; i < dataGridChitiet.Columns.Count; i++)
+                {
+                    dataGridNguyenlieuCT.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
             }
         }
 
@@ -87,7 +95,7 @@ namespace HealthyApp
 
                 tencongthuc = textBoxTaomoi.Text;
                 String truyvan = string.Format("INSERT INTO Congthuc VALUES (N'{0}', N'1(khẩu phần)', N'' );"
-                    ,tencongthuc);
+                    , tencongthuc);
                 conn.Thucthi(truyvan);
                 congthucload();
             }
@@ -121,6 +129,10 @@ namespace HealthyApp
                 dataGridTong.Columns["Tong"].HeaderCell.Value = "Tổng";
                 dataGridTong.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
                 dataGridTong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                for (int i = 0; i < dataGridChitiet.Columns.Count; i++)
+                {
+                    dataGridTong.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
             }
         }
         void ghichuload()
@@ -172,10 +184,13 @@ namespace HealthyApp
             buttonThem.Enabled = true;
             buttonSua.Enabled = false;
             buttonXoa.Enabled = false;
-            id_nguyenlieu = Convert.ToString(dataGridNguyenLieu.Rows[e.RowIndex].Cells["Id"].Value);
-            numericSoluong.Value = 1;
-            String nguyenlieu = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
-            chitietload(nguyenlieu);
+            if (e.ColumnIndex > 0)
+            {
+                id_nguyenlieu = Convert.ToString(dataGridNguyenLieu.Rows[e.RowIndex].Cells["Id"].Value);
+                numericSoluong.Value = 1;
+                String nguyenlieu = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
+                chitietload(nguyenlieu);
+            }
         }
 
         private void numericSoluong_ValueChanged(object sender, EventArgs e)
@@ -217,10 +232,13 @@ namespace HealthyApp
             buttonThem.Enabled = false;
             buttonSua.Enabled = true;
             buttonXoa.Enabled = true;
-            id_nguyenlieu = Convert.ToString(dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Id_nguyenlieu"].Value);
-            String nguyenlieu = (string)dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
-            numericSoluong.Value = Convert.ToDecimal(dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Soluong"].Value);
-            chitietload(nguyenlieu);
+            if (e.RowIndex > 0)
+            {
+                id_nguyenlieu = Convert.ToString(dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Id_nguyenlieu"].Value);
+                String nguyenlieu = (string)dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
+                numericSoluong.Value = Convert.ToDecimal(dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Soluong"].Value);
+                chitietload(nguyenlieu);
+            }
         }
         string layidcongthuc()
         {
@@ -232,7 +250,8 @@ namespace HealthyApp
                 dataTable = conn.LayDuLieu(truyvan);
                 string id_congthuc = dataTable.Rows[0]["Id_congthuc"].ToString();
                 return id_congthuc;
-            }else { return  string.Empty; }
+            }
+            else { return string.Empty; }
         }
         private void buttonThem_Click(object sender, EventArgs e)
         {

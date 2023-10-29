@@ -36,6 +36,10 @@ namespace HealthyApp
                 );
             DataTable dataTable = conn.LayDuLieu(truyvan);
             dataGridCongThuc.DataSource = dataTable;
+            dataGridCongThuc.Columns["Tencongthuc"].HeaderCell.Value = "Công thức";
+            dataGridCongThuc.Columns["Id_congthuc"].Visible = false;
+            dataGridCongThuc.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
+            dataGridCongThuc.Columns["Ghichu"].HeaderCell.Value = "Ghi chú";
             dataGridCongThuc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 

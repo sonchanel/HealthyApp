@@ -77,14 +77,14 @@
             dataGridThucdon.AllowUserToResizeRows = false;
             dataGridThucdon.BorderStyle = BorderStyle.None;
             dataGridThucdon.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridThucdon.Location = new Point(277, 73);
+            dataGridThucdon.Location = new Point(277, 97);
             dataGridThucdon.MultiSelect = false;
             dataGridThucdon.Name = "dataGridThucdon";
             dataGridThucdon.ReadOnly = true;
             dataGridThucdon.RowHeadersVisible = false;
             dataGridThucdon.RowTemplate.Height = 25;
             dataGridThucdon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridThucdon.Size = new Size(352, 216);
+            dataGridThucdon.Size = new Size(352, 192);
             dataGridThucdon.TabIndex = 9;
             dataGridThucdon.DataSourceChanged += dataGridThucdon_DataSourceChanged;
             dataGridThucdon.CellClick += dataGridThucdon_CellClick;
@@ -98,7 +98,6 @@
             dataGridNguyenLieu.AllowUserToResizeRows = false;
             dataGridNguyenLieu.BorderStyle = BorderStyle.None;
             dataGridNguyenLieu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridNguyenLieu.ColumnHeadersVisible = false;
             dataGridNguyenLieu.Location = new Point(17, 97);
             dataGridNguyenLieu.MultiSelect = false;
             dataGridNguyenLieu.Name = "dataGridNguyenLieu";
