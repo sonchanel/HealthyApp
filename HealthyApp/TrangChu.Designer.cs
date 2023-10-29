@@ -129,7 +129,7 @@
             dateTimeTrangChu.Location = new Point(12, 12);
             dateTimeTrangChu.Name = "dateTimeTrangChu";
             dateTimeTrangChu.Size = new Size(89, 23);
-            dateTimeTrangChu.TabIndex = 7;
+            dateTimeTrangChu.TabIndex = 0;
             dateTimeTrangChu.ValueChanged += dateTimeTrangChu_ValueChanged;
             // 
             // label1

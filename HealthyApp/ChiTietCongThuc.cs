@@ -38,14 +38,14 @@ namespace HealthyApp
         {
             if (tencongthuc.Length > 0)
             {
-                dataGridNguyenLieu.DataSource = conn.LayDuLieu(string.Format("select Id,Tennguyenlieu,Donvi from Nguyenlieu where Tennguyenlieu not in (select Nguyenlieu.Tennguyenlieu from Congthuc,Chitietcongthuc,Nguyenlieu where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Tencongthuc like N'%{0}%')"
+                dataGridNguyenLieu.DataSource = conn.LayDuLieu(string.Format("select Id,Tennguyenlieu,Donvi from Nguyenlieu where Tennguyenlieu not in (select Nguyenlieu.Tennguyenlieu from Congthuc,Chitietcongthuc,Nguyenlieu where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Tencongthuc like N'{0}')"
                                                                 , tencongthuc));
                 dataGridNguyenLieu.Columns["Id"].Visible = false;
                 dataGridNguyenLieu.Columns["Tennguyenlieu"].HeaderCell.Value = "Nguyên liệu";
                 dataGridNguyenLieu.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
                 dataGridNguyenLieu.Columns["Tennguyenlieu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridNguyenLieu.Columns["Donvi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                for (int i = 0; i < dataGridChitiet.Columns.Count; i++)
+                for (int i = 0; i < dataGridNguyenLieu.Columns.Count; i++)
                 {
                     dataGridNguyenLieu.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
@@ -56,14 +56,14 @@ namespace HealthyApp
         {
             if (tencongthuc.Length > 0)
             {
-                dataGridNguyenlieuCT.DataSource = conn.LayDuLieu(string.Format("select Id_nguyenlieu,Nguyenlieu.Tennguyenlieu, Chitietcongthuc.Soluong from Congthuc,Chitietcongthuc,Nguyenlieu where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Tencongthuc like N'%{0}%'"
+                dataGridNguyenlieuCT.DataSource = conn.LayDuLieu(string.Format("select Id_nguyenlieu,Nguyenlieu.Tennguyenlieu, Chitietcongthuc.Soluong from Congthuc,Chitietcongthuc,Nguyenlieu where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Tencongthuc like N'{0}'"
                                                                 , tencongthuc));
                 dataGridNguyenlieuCT.Columns["Tennguyenlieu"].HeaderCell.Value = "Nguyên liệu";
                 dataGridNguyenlieuCT.Columns["Soluong"].HeaderCell.Value = "Số lượng";
                 dataGridNguyenlieuCT.Columns["Id_nguyenlieu"].Visible = false;
                 dataGridNguyenlieuCT.Columns["Tennguyenlieu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dataGridNguyenlieuCT.Columns["Soluong"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                for (int i = 0; i < dataGridChitiet.Columns.Count; i++)
+                for (int i = 0; i < dataGridNguyenlieuCT.Columns.Count; i++)
                 {
                     dataGridNguyenlieuCT.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
@@ -92,12 +92,30 @@ namespace HealthyApp
         {
             if (textBoxTaomoi.Text.Length > 0)
             {
-
+                bool taomoi = true;
                 tencongthuc = textBoxTaomoi.Text;
-                String truyvan = string.Format("INSERT INTO Congthuc VALUES (N'{0}', N'1(khẩu phần)', N'' );"
-                    , tencongthuc);
-                conn.Thucthi(truyvan);
-                congthucload();
+                string truyvan = "select Tencongthuc as Ten from Congthuc";
+                DataTable congthuc = conn.LayDuLieu(truyvan);
+                truyvan = "select Tennguyenlieu as Ten from Nguyenlieu";
+                DataTable nguyenlieu = conn.LayDuLieu(truyvan);
+                congthuc.Merge(nguyenlieu);
+                for(int i = 0;i < congthuc.Rows.Count; i++) {
+                    if (Convert.ToString(congthuc.Rows[i]["Ten"]).Equals(tencongthuc))
+                    {
+                        taomoi = false;
+                    }
+                }
+                if (taomoi)
+                {
+                    truyvan = string.Format("INSERT INTO Congthuc VALUES (N'{0}', N'1(khẩu phần)', N'' );"
+                        , tencongthuc);
+                    conn.Thucthi(truyvan);
+                    congthucload();
+                }
+                else
+                {
+                    MessageBox.Show("Tên đã được sử dụng ! Vui lòng nhập tên khác !", "Lỗi");
+                }
             }
             else
             {
@@ -129,7 +147,7 @@ namespace HealthyApp
                 dataGridTong.Columns["Tong"].HeaderCell.Value = "Tổng";
                 dataGridTong.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
                 dataGridTong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                for (int i = 0; i < dataGridChitiet.Columns.Count; i++)
+                for (int i = 0; i < dataGridTong.Columns.Count; i++)
                 {
                     dataGridTong.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
                 }
@@ -139,7 +157,7 @@ namespace HealthyApp
         {
             if (tencongthuc.Length > 0)
             {
-                string truyvan = string.Format("select case when Ghichu is null then '' else Ghichu end as Ghichu from Congthuc where Tencongthuc like N'%{0}%'"
+                string truyvan = string.Format("select case when Ghichu is null then '' else Ghichu end as Ghichu from Congthuc where Tencongthuc like N'{0}'"
                     , tencongthuc);
                 DataTable dt = new DataTable();
                 dt = conn.LayDuLieu(truyvan);
@@ -184,7 +202,7 @@ namespace HealthyApp
             buttonThem.Enabled = true;
             buttonSua.Enabled = false;
             buttonXoa.Enabled = false;
-            if (e.ColumnIndex > 0)
+            if (e.RowIndex >= 0)
             {
                 id_nguyenlieu = Convert.ToString(dataGridNguyenLieu.Rows[e.RowIndex].Cells["Id"].Value);
                 numericSoluong.Value = 1;
@@ -218,7 +236,8 @@ namespace HealthyApp
                 dt = conn.LayDuLieu(truyvan);
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    if (Convert.ToInt32(dt.Rows[i]["Id_congthuc"]).Equals(Tuychon))
+                    int t = Convert.ToInt32(dt.Rows[i]["Id_congthuc"]);
+                    if (t == Tuychon)
                     {
                         tencongthuc = Convert.ToString(dt.Rows[i]["Tencongthuc"]);
                         congthucload();
@@ -232,7 +251,7 @@ namespace HealthyApp
             buttonThem.Enabled = false;
             buttonSua.Enabled = true;
             buttonXoa.Enabled = true;
-            if (e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
                 id_nguyenlieu = Convert.ToString(dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Id_nguyenlieu"].Value);
                 String nguyenlieu = (string)dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
@@ -323,6 +342,16 @@ namespace HealthyApp
         }
 
         private void buttonXoacongthuc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridChitiet_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridNguyenlieuCT_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

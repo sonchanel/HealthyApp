@@ -88,6 +88,7 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
             Name = "HeThong";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Healthy App";

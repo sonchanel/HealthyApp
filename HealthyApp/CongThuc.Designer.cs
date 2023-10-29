@@ -50,8 +50,10 @@
             dataGridCongThuc.RowTemplate.Height = 25;
             dataGridCongThuc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridCongThuc.Size = new Size(434, 347);
-            dataGridCongThuc.TabIndex = 11;
-            dataGridCongThuc.CellDoubleClick += dataGridCongThuc_CellClick;
+            dataGridCongThuc.TabIndex = 1;
+            dataGridCongThuc.CellClick += dataGridCongThuc_CellClick;
+            dataGridCongThuc.CellContentClick += dataGridCongThuc_CellContentClick;
+            dataGridCongThuc.CellDoubleClick += dataGridCongThuc_CellDoubleClick;
             // 
             // label1
             // 
@@ -68,7 +70,7 @@
             buttonCongthuc.Location = new Point(371, 47);
             buttonCongthuc.Name = "buttonCongthuc";
             buttonCongthuc.Size = new Size(75, 23);
-            buttonCongthuc.TabIndex = 14;
+            buttonCongthuc.TabIndex = 0;
             buttonCongthuc.Text = "Tạo mới";
             buttonCongthuc.UseVisualStyleBackColor = true;
             buttonCongthuc.Click += buttonCongthuc_Click;
@@ -78,7 +80,7 @@
             buttonXoa.Location = new Point(257, 47);
             buttonXoa.Name = "buttonXoa";
             buttonXoa.Size = new Size(108, 23);
-            buttonXoa.TabIndex = 15;
+            buttonXoa.TabIndex = 2;
             buttonXoa.Text = "Xóa công thức";
             buttonXoa.UseVisualStyleBackColor = true;
             buttonXoa.Click += buttonXoa_Click;

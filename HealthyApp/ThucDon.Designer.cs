@@ -85,7 +85,7 @@
             dataGridThucdon.RowTemplate.Height = 25;
             dataGridThucdon.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridThucdon.Size = new Size(352, 192);
-            dataGridThucdon.TabIndex = 9;
+            dataGridThucdon.TabIndex = 1;
             dataGridThucdon.DataSourceChanged += dataGridThucdon_DataSourceChanged;
             dataGridThucdon.CellClick += dataGridThucdon_CellClick;
             dataGridThucdon.CellContentClick += dataGridThucdon_CellContentClick;
@@ -106,7 +106,7 @@
             dataGridNguyenLieu.RowTemplate.Height = 25;
             dataGridNguyenLieu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridNguyenLieu.Size = new Size(240, 192);
-            dataGridNguyenLieu.TabIndex = 10;
+            dataGridNguyenLieu.TabIndex = 0;
             dataGridNguyenLieu.CellClick += dataGridNguyenLieu_CellClick;
             dataGridNguyenLieu.CellContentClick += dataGridNguyenLieu_CellContentClick;
             // 
@@ -115,7 +115,7 @@
             buttonThem.Location = new Point(12, 472);
             buttonThem.Name = "buttonThem";
             buttonThem.Size = new Size(75, 23);
-            buttonThem.TabIndex = 13;
+            buttonThem.TabIndex = 5;
             buttonThem.Text = "Thêm";
             buttonThem.UseVisualStyleBackColor = true;
             buttonThem.Click += buttonThem_Click;
@@ -125,7 +125,7 @@
             buttonXoa.Location = new Point(174, 472);
             buttonXoa.Name = "buttonXoa";
             buttonXoa.Size = new Size(75, 23);
-            buttonXoa.TabIndex = 14;
+            buttonXoa.TabIndex = 7;
             buttonXoa.Text = "Xóa";
             buttonXoa.UseVisualStyleBackColor = true;
             buttonXoa.Click += buttonXoa_Click;
@@ -146,7 +146,7 @@
             dataGridChitiet.RowTemplate.Height = 25;
             dataGridChitiet.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridChitiet.Size = new Size(617, 117);
-            dataGridChitiet.TabIndex = 15;
+            dataGridChitiet.TabIndex = 2;
             dataGridChitiet.CellClick += dataGridChitiet_CellClick;
             dataGridChitiet.CellContentClick += dataGridChitiet_CellContentClick;
             // 
@@ -184,7 +184,7 @@
             numericSoluong.Location = new Point(77, 443);
             numericSoluong.Name = "numericSoluong";
             numericSoluong.Size = new Size(131, 23);
-            numericSoluong.TabIndex = 21;
+            numericSoluong.TabIndex = 3;
             numericSoluong.ValueChanged += numericSoluong_ValueChanged;
             // 
             // buttonLammoi
@@ -192,7 +192,7 @@
             buttonLammoi.Location = new Point(255, 472);
             buttonLammoi.Name = "buttonLammoi";
             buttonLammoi.Size = new Size(75, 23);
-            buttonLammoi.TabIndex = 22;
+            buttonLammoi.TabIndex = 8;
             buttonLammoi.Text = "Làm mới";
             buttonLammoi.UseVisualStyleBackColor = true;
             buttonLammoi.Click += buttonLammoi_Click;
@@ -202,7 +202,7 @@
             buttonSua.Location = new Point(93, 472);
             buttonSua.Name = "buttonSua";
             buttonSua.Size = new Size(75, 23);
-            buttonSua.TabIndex = 23;
+            buttonSua.TabIndex = 6;
             buttonSua.Text = "Sửa";
             buttonSua.UseVisualStyleBackColor = true;
             buttonSua.Click += buttonSua_Click;
@@ -221,7 +221,7 @@
             TextBoxGhichu.Location = new Point(349, 445);
             TextBoxGhichu.Name = "TextBoxGhichu";
             TextBoxGhichu.Size = new Size(280, 50);
-            TextBoxGhichu.TabIndex = 25;
+            TextBoxGhichu.TabIndex = 4;
             TextBoxGhichu.Text = "";
             // 
             // label1

@@ -83,7 +83,7 @@
             textBoxTaomoi.Location = new Point(297, 14);
             textBoxTaomoi.Name = "textBoxTaomoi";
             textBoxTaomoi.Size = new Size(174, 23);
-            textBoxTaomoi.TabIndex = 28;
+            textBoxTaomoi.TabIndex = 0;
             textBoxTaomoi.TextChanged += textBoxTaomoi_TextChanged;
             // 
             // buttonTaomoi
@@ -91,7 +91,7 @@
             buttonTaomoi.Location = new Point(477, 14);
             buttonTaomoi.Name = "buttonTaomoi";
             buttonTaomoi.Size = new Size(75, 23);
-            buttonTaomoi.TabIndex = 29;
+            buttonTaomoi.TabIndex = 1;
             buttonTaomoi.Text = "Tạo";
             buttonTaomoi.UseVisualStyleBackColor = true;
             buttonTaomoi.Click += buttonTaomoi_Click;
@@ -126,7 +126,7 @@
             buttonCapnhap.Location = new Point(679, 390);
             buttonCapnhap.Name = "buttonCapnhap";
             buttonCapnhap.Size = new Size(120, 23);
-            buttonCapnhap.TabIndex = 48;
+            buttonCapnhap.TabIndex = 12;
             buttonCapnhap.Text = "Sửa công thức";
             buttonCapnhap.UseVisualStyleBackColor = true;
             buttonCapnhap.Click += buttonCapnhap_Click;
@@ -136,7 +136,7 @@
             buttonLammoi.Location = new Point(679, 361);
             buttonLammoi.Name = "buttonLammoi";
             buttonLammoi.Size = new Size(120, 23);
-            buttonLammoi.TabIndex = 47;
+            buttonLammoi.TabIndex = 11;
             buttonLammoi.Text = "Làm mới";
             buttonLammoi.UseVisualStyleBackColor = true;
             buttonLammoi.Click += buttonLammoi_Click;
@@ -146,7 +146,7 @@
             buttonXoa.Location = new Point(553, 419);
             buttonXoa.Name = "buttonXoa";
             buttonXoa.Size = new Size(120, 23);
-            buttonXoa.TabIndex = 46;
+            buttonXoa.TabIndex = 10;
             buttonXoa.Text = "Xóa nguyên liệu";
             buttonXoa.UseVisualStyleBackColor = true;
             buttonXoa.Click += buttonXoa_Click;
@@ -156,7 +156,7 @@
             buttonSua.Location = new Point(553, 390);
             buttonSua.Name = "buttonSua";
             buttonSua.Size = new Size(120, 23);
-            buttonSua.TabIndex = 45;
+            buttonSua.TabIndex = 9;
             buttonSua.Text = "Sửa nguyên liệu";
             buttonSua.UseVisualStyleBackColor = true;
             buttonSua.Click += buttonSua_Click;
@@ -166,7 +166,7 @@
             TextBoxGhichu.Location = new Point(579, 44);
             TextBoxGhichu.Name = "TextBoxGhichu";
             TextBoxGhichu.Size = new Size(207, 282);
-            TextBoxGhichu.TabIndex = 44;
+            TextBoxGhichu.TabIndex = 6;
             TextBoxGhichu.Text = "";
             TextBoxGhichu.TextChanged += TextBoxGhichu_TextChanged;
             // 
@@ -184,7 +184,7 @@
             buttonThem.Location = new Point(553, 361);
             buttonThem.Name = "buttonThem";
             buttonThem.Size = new Size(120, 23);
-            buttonThem.TabIndex = 42;
+            buttonThem.TabIndex = 8;
             buttonThem.Text = "Thêm nguyên liệu";
             buttonThem.UseVisualStyleBackColor = true;
             buttonThem.Click += buttonThem_Click;
@@ -194,7 +194,7 @@
             numericSoluong.Location = new Point(639, 332);
             numericSoluong.Name = "numericSoluong";
             numericSoluong.Size = new Size(147, 23);
-            numericSoluong.TabIndex = 41;
+            numericSoluong.TabIndex = 7;
             numericSoluong.ValueChanged += numericSoluong_ValueChanged;
             // 
             // label5
@@ -242,7 +242,7 @@
             dataGridTong.RowTemplate.Height = 25;
             dataGridTong.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridTong.Size = new Size(545, 96);
-            dataGridTong.TabIndex = 37;
+            dataGridTong.TabIndex = 5;
             // 
             // dataGridNguyenlieuCT
             // 
@@ -259,8 +259,9 @@
             dataGridNguyenlieuCT.RowTemplate.Height = 25;
             dataGridNguyenlieuCT.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridNguyenlieuCT.Size = new Size(280, 159);
-            dataGridNguyenlieuCT.TabIndex = 36;
+            dataGridNguyenlieuCT.TabIndex = 3;
             dataGridNguyenlieuCT.CellClick += dataGridNguyenlieuCT_CellClick;
+            dataGridNguyenlieuCT.CellContentClick += dataGridNguyenlieuCT_CellContentClick;
             // 
             // label3
             // 
@@ -298,7 +299,8 @@
             dataGridChitiet.RowTemplate.Height = 25;
             dataGridChitiet.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridChitiet.Size = new Size(545, 96);
-            dataGridChitiet.TabIndex = 33;
+            dataGridChitiet.TabIndex = 4;
+            dataGridChitiet.CellContentClick += dataGridChitiet_CellContentClick_1;
             // 
             // dataGridNguyenLieu
             // 
@@ -316,7 +318,7 @@
             dataGridNguyenLieu.RowTemplate.Height = 25;
             dataGridNguyenLieu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridNguyenLieu.Size = new Size(240, 159);
-            dataGridNguyenLieu.TabIndex = 32;
+            dataGridNguyenLieu.TabIndex = 2;
             dataGridNguyenLieu.CellClick += dataGridNguyenLieu_CellClick;
             // 
             // ChiTietCongThuc

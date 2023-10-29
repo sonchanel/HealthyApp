@@ -32,6 +32,7 @@ namespace HealthyApp
         }
         void congthucload()
         {
+            buttonXoa.Enabled = false;
             string truyvan = string.Format("select Tencongthuc,Id_congthuc,Donvi,case when Ghichu is null then '' else Ghichu end as Ghichu from congthuc"
                 );
             DataTable dataTable = conn.LayDuLieu(truyvan);
@@ -52,19 +53,41 @@ namespace HealthyApp
         {
             chitietformload(0);
         }
-
+        int tuychon = -1;
         private void dataGridCongThuc_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int tuychon = Convert.ToInt32(dataGridCongThuc.Rows[e.RowIndex].Cells["Id_congthuc"].Value);
-            chitietformload(tuychon);
+            if (e.RowIndex >= 0)
+            {
+                buttonXoa.Enabled = true;
+                tuychon = Convert.ToInt32(dataGridCongThuc.Rows[e.RowIndex].Cells["Id_congthuc"].Value);
+            }
         }
 
 
         private void buttonXoa_Click(object sender, EventArgs e)
         {
-
+            MessageBoxButtons messageBoxButtons = MessageBoxButtons.YesNo;
+            DialogResult ketqua = MessageBox.Show("Bạn có chắc chắn xóa ?", "Xác nhận xóa", messageBoxButtons);
+            if (ketqua == DialogResult.Yes)
+            {
+                string truyvan = string.Format("DELETE FROM Congthuc WHERE Id_congthuc = '{0}'"
+                , tuychon);
+                conn.Thucthi(truyvan);
+            }
+            congthucload();
         }
 
+        private void dataGridCongThuc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                chitietformload(tuychon);
+            }
+        }
 
+        private void dataGridCongThuc_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

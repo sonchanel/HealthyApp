@@ -30,9 +30,10 @@ namespace HealthyApp
         void reload()
         {
             dateTimeTrangChu.Value = dateTime;
-            dataGridThucdon.DataSource = conn.LayDuLieu(string.Format("select Id,Tennguyenlieu,Soluong,case when Ghichu is null then '' else Ghichu end as Ghichu from thucdon where Buaan = '{0}' and Thoigian = '{1}'"
+            dataGridThucdon.DataSource = conn.LayDuLieu(string.Format("select Type,Id,Tennguyenlieu,Soluong,case when Ghichu is null then '' else Ghichu end as Ghichu from thucdon where Buaan = '{0}' and Thoigian = '{1}'"
                                 , time, dateTimeTrangChu.Value));
             dataGridThucdon.Columns["Id"].Visible = false;
+            dataGridThucdon.Columns["Type"].Visible = false;
             String title = "";
             if (time == "Sang")
                 title = "Bữa sáng";
@@ -48,9 +49,9 @@ namespace HealthyApp
                                                             , time, dateTimeTrangChu.Value));
             DataTable congthuc = conn.LayDuLieu(string.Format("select Tencongthuc as Tennguyenlieu,Donvi from Congthuc "
                                                             ));
-            congthuc.Columns.Add("Type",typeof(string));
+            congthuc.Columns.Add("Type", typeof(string));
             congthuc.Columns["Type"].DefaultValue = "0";
-            for(int i = 0;i < congthuc.Rows.Count; i++)
+            for (int i = 0; i < congthuc.Rows.Count; i++)
             {
                 congthuc.Rows[i]["Type"] = "1";
             }
@@ -92,6 +93,7 @@ namespace HealthyApp
             buttonLammoi_Click(sender, e);
         }
         String title = "";
+        String type = "0";
         private void dataGridNguyenLieu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvclick();
@@ -100,12 +102,15 @@ namespace HealthyApp
             buttonThem.Enabled = true;
             numericSoluong.Enabled = true;
             title = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
-            string type = "0";
             if ((string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Type"].Value == "1")
             {
                 type = "1";
             }
-            chitietload(title,type);
+            else
+            {
+                type = "0";
+            }
+            chitietload(title, type);
         }
         int Index;
         private void dataGridThucdon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -122,10 +127,13 @@ namespace HealthyApp
                 String nguyenlieu = (string)dataGridThucdon.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
                 numericSoluong.Value = Convert.ToDecimal(dataGridThucdon.Rows[e.RowIndex].Cells["Soluong"].Value);
                 TextBoxGhichu.Text = (string)dataGridThucdon.Rows[e.RowIndex].Cells["Ghichu"].Value;
-                string type = "0";
                 if ((string)dataGridThucdon.Rows[e.RowIndex].Cells["Type"].Value == "1")
                 {
                     type = "1";
+                }
+                else
+                {
+                    type = "0";
                 }
                 chitietload(nguyenlieu, type);
             }
@@ -197,8 +205,8 @@ namespace HealthyApp
                 ghichu = TextBoxGhichu.Text;
                 tennguyenlieu = title;
                 soluong = Convert.ToInt32(numericSoluong.Value);
-                String truyvan = string.Format("INSERT INTO Thucdon(Thoigian, Buaan, Ghichu, Tennguyenlieu, Soluong)VALUES ('{0}', '{1}', '{2}', N'{3}', {4});"
-                    , thoigian, buaan, ghichu, tennguyenlieu, soluong);
+                String truyvan = string.Format("INSERT INTO Thucdon(Thoigian, Buaan, Ghichu, Tennguyenlieu, Soluong, Type)VALUES ('{0}', '{1}', '{2}', N'{3}', {4}, {5});"
+                    , thoigian, buaan, ghichu, tennguyenlieu, soluong, type);
                 conn.Thucthi(truyvan);
                 buttonLammoi_Click(sender, e);
             }
@@ -223,11 +231,19 @@ namespace HealthyApp
 
         private void dataGridThucdon_DataSourceChanged(object sender, EventArgs e)
         {
-            String truyvan = string.Format("select Sum(Tong) as TongCalo from (select Sum(Luongchiso*Thucdon.Soluong) as Tong,Thucdon.Thoigian,Thucdon.Buaan,Thucdon.Tennguyenlieu,Thucdon.Soluong,Chisodinhduong.Id,Chisodinhduong.Tenchiso,Chisodinhduong.Luongchiso from Thucdon,Chisodinhduong,Nguyenlieu where Thucdon.Tennguyenlieu=Nguyenlieu.Tennguyenlieu and Chisodinhduong.Id=Nguyenlieu.Id and Tenchiso = 'calo' and Thucdon.Thoigian = '{0}' and Buaan = '{1}' group by Thoigian,Buaan,Thucdon.Tennguyenlieu,Thucdon.Soluong,Chisodinhduong.Id,Chisodinhduong.Tenchiso,Chisodinhduong.Luongchiso ) as BangCalo"
-                                , dateTimeTrangChu.Value, time);
-            DataTable dataTable = new DataTable();
-            dataTable = conn.LayDuLieu(truyvan);
-            textBoxTongCalo.Text = Convert.ToString(dataTable.Rows[0]["TongCalo"].ToString());
+            String truyvan = string.Format("select Sum(Tong) as Tong from (select Sum(Luongchiso*Thucdon.Soluong) as Tong from Thucdon,Nguyenlieu,Chisodinhduong where Thucdon.Thoigian = '{0}' and Buaan = '{1}' and Nguyenlieu.Tennguyenlieu = Thucdon.Tennguyenlieu and Nguyenlieu.Id = Chisodinhduong.Id and Tenchiso = 'Calo' group by Luongchiso,Thucdon.Soluong) as BangCalo"
+                , dateTimeTrangChu.Value, time);
+            DataTable dataTable =  conn.LayDuLieu(truyvan);
+            truyvan = string.Format("select Sum(Thucdon.Soluong*Luongchiso*Chitietcongthuc.Soluong) as Tong from Thucdon,Congthuc,Chitietcongthuc,Nguyenlieu,Chisodinhduong where Thucdon.Thoigian = '{0}' and Buaan = '{1}' and Congthuc.Tencongthuc = Thucdon.Tennguyenlieu and Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Nguyenlieu.Id= Chisodinhduong.Id and Tenchiso = 'Calo'"
+                ,dateTimeTrangChu.Value,time);
+            DataTable dataTable1 = conn.LayDuLieu(truyvan);
+            dataTable.Merge(dataTable1);
+            int tong = 0;
+            for(int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                tong += Convert.ToInt32(dataTable.Rows[i]["Tong"]);
+            }
+            textBoxTongCalo.Text = Convert.ToString(tong);
             if (textBoxTongCalo.Text != "")
             {
                 textBoxTongCalo.Text += " kcal";
