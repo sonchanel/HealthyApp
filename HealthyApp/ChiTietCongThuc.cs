@@ -17,9 +17,11 @@ namespace HealthyApp
         KetNoi conn = new KetNoi();
         String tencongthuc = "";
         int Tuychon;
+        string Tk;
         DataTable dt = new DataTable();
-        public ChiTietCongThuc(int tuychon)
+        public ChiTietCongThuc(int tuychon, string Taikhoan)
         {
+            Tk = Taikhoan;
             Tuychon = tuychon;
             InitializeComponent();
 
@@ -99,16 +101,20 @@ namespace HealthyApp
                 truyvan = "select Tennguyenlieu as Ten from Nguyenlieu";
                 DataTable nguyenlieu = conn.LayDuLieu(truyvan);
                 congthuc.Merge(nguyenlieu);
-                for(int i = 0;i < congthuc.Rows.Count; i++) {
-                    if (Convert.ToString(congthuc.Rows[i]["Ten"]).Equals(tencongthuc))
+                for (int i = 0; i < congthuc.Rows.Count; i++)
+                {
+                    if (congthuc.Rows[i]["Ten"]!=DBNull.Value)
                     {
-                        taomoi = false;
+                        if (Convert.ToString(congthuc.Rows[i]["Ten"]).Equals(tencongthuc))
+                        {
+                            taomoi = false;
+                        }
                     }
                 }
                 if (taomoi)
                 {
-                    truyvan = string.Format("INSERT INTO Congthuc VALUES (N'{0}', N'1(khẩu phần)', N'' );"
-                        , tencongthuc);
+                    truyvan = string.Format("INSERT INTO Congthuc VALUES (N'{0}', N'1(khẩu phần)', N'', N'{1}' );"
+                        , tencongthuc, Tk);
                     conn.Thucthi(truyvan);
                     congthucload();
                 }
@@ -145,6 +151,7 @@ namespace HealthyApp
                 dataGridTong.DataSource = conn.LayDuLieu(truyvan);
                 dataGridTong.Columns["Tenchiso"].HeaderCell.Value = "Chỉ số";
                 dataGridTong.Columns["Tong"].HeaderCell.Value = "Tổng";
+                dataGridTong.Columns["Tong"].DefaultCellStyle.Format = "N0";
                 dataGridTong.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
                 dataGridTong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 for (int i = 0; i < dataGridTong.Columns.Count; i++)

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.TrangChu.resources
 D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.GenerateResource.cache
 D:\Study\.Net\Do AN\HealthyApp\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.GeneratedMSBuildEditorConfig.editorconfig
@@ -138,3 +139,43 @@ D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\n
 D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.pdb
 D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.genruntimeconfig.cache
 D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\ref\HealthyApp.dll
+D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.DangNhap.resources
+D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.TaiKhoan.resources
+D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.Properties.Resources.resources
+D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.DangKi.resources
+=======
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.exe
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.deps.json
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.runtimeconfig.json
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.dll
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.pdb
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.AssemblyReference.cache
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.CaNhan.resources
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ChiSoCoThe.resources
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ChiTietCongThuc.resources
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.CongThuc.resources
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.DangNhap.resources
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.HeThong.resources
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ThucDon.resources
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.TrangChu.resources
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.GenerateResource.cache
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.AssemblyInfoInputs.cache
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.AssemblyInfo.cs
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.CoreCompileInputs.cache
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.CopyComplete
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.dll
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\refint\HealthyApp.dll
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.pdb
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.genruntimeconfig.cache
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\ref\HealthyApp.dll
+D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.Properties.Resources.resources
+>>>>>>> 4185ac5808b7c99d81dc4118fb0f7b1ee2f61e3f
+D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.CaNhan.resources
+D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ChiSoCoThe.resources

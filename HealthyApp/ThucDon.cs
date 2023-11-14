@@ -14,10 +14,12 @@ namespace HealthyApp
     public partial class ThucDon : Form
     {
         String time;
+        String Tk;
         DateTime dateTime;
         KetNoi conn = new KetNoi();
-        public ThucDon(String thoigian, DateTime datetime)
+        public ThucDon(String thoigian, DateTime datetime, string taikhoan)
         {
+            Tk = taikhoan;
             time = thoigian;
             dateTime = datetime;
             InitializeComponent();
@@ -30,8 +32,8 @@ namespace HealthyApp
         void reload()
         {
             dateTimeTrangChu.Value = dateTime;
-            dataGridThucdon.DataSource = conn.LayDuLieu(string.Format("select Type,Id,Tennguyenlieu,Soluong,case when Ghichu is null then '' else Ghichu end as Ghichu from thucdon where Buaan = '{0}' and Thoigian = '{1}'"
-                                , time, dateTimeTrangChu.Value));
+            dataGridThucdon.DataSource = conn.LayDuLieu(string.Format("select Type,Id,Tennguyenlieu,Soluong,case when Ghichu is null then '' else Ghichu end as Ghichu from thucdon where Buaan = '{0}' and Thoigian = '{1}' and Taikhoan = '{2}'"
+                                , time, dateTimeTrangChu.Value, Tk));
             dataGridThucdon.Columns["Id"].Visible = false;
             dataGridThucdon.Columns["Type"].Visible = false;
             String title = "";
@@ -47,8 +49,8 @@ namespace HealthyApp
 
             DataTable nguyenlieu = conn.LayDuLieu(string.Format("select Tennguyenlieu,Donvi from Nguyenlieu where Tennguyenlieu not in (SELECT Tennguyenlieu FROM Thucdon where Buaan = '{0}' and Thoigian = '{1}')"
                                                             , time, dateTimeTrangChu.Value));
-            DataTable congthuc = conn.LayDuLieu(string.Format("select Tencongthuc as Tennguyenlieu,Donvi from Congthuc "
-                                                            ));
+            DataTable congthuc = conn.LayDuLieu(string.Format("select Tencongthuc as Tennguyenlieu,Donvi from Congthuc where Taikhoan = '{0}'"
+                                                            ,Tk));
             congthuc.Columns.Add("Type", typeof(string));
             congthuc.Columns["Type"].DefaultValue = "0";
             for (int i = 0; i < congthuc.Rows.Count; i++)
@@ -63,6 +65,11 @@ namespace HealthyApp
             dataGridNguyenLieu.Columns["Tennguyenlieu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridNguyenLieu.Columns["Donvi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             //dataGridNguyenLieu.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            for (int i = 0; i < dataGridNguyenLieu.Columns.Count; i++)
+            {
+                dataGridNguyenLieu.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
 
             dataGridChitiet.Columns.Clear();
         }
@@ -101,16 +108,19 @@ namespace HealthyApp
             buttonreload();
             buttonThem.Enabled = true;
             numericSoluong.Enabled = true;
-            title = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
-            if ((string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Type"].Value == "1")
+            if (e.RowIndex >= 0)
             {
-                type = "1";
+                title = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
+                if ((string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Type"].Value == "1")
+                {
+                    type = "1";
+                }
+                else
+                {
+                    type = "0";
+                }
+                chitietload(title, type);
             }
-            else
-            {
-                type = "0";
-            }
-            chitietload(title, type);
         }
         int Index;
         private void dataGridThucdon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -155,7 +165,7 @@ namespace HealthyApp
             dataGridChitiet.Columns["Tenchiso"].HeaderCell.Value = "Chỉ số";
             dataGridChitiet.Columns["Luongchiso"].HeaderCell.Value = "Khối lượng";
             dataGridChitiet.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
-
+            dataGridChitiet.Columns["Luongchiso"].DefaultCellStyle.Format = "N0";
             dataGridChitiet.Columns.Add("Tong", "Tổng");
             dataGridChitiet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tinhtong();
@@ -205,8 +215,8 @@ namespace HealthyApp
                 ghichu = TextBoxGhichu.Text;
                 tennguyenlieu = title;
                 soluong = Convert.ToInt32(numericSoluong.Value);
-                String truyvan = string.Format("INSERT INTO Thucdon(Thoigian, Buaan, Ghichu, Tennguyenlieu, Soluong, Type)VALUES ('{0}', '{1}', '{2}', N'{3}', {4}, {5});"
-                    , thoigian, buaan, ghichu, tennguyenlieu, soluong, type);
+                String truyvan = string.Format("INSERT INTO Thucdon(Thoigian, Buaan, Ghichu, Tennguyenlieu, Soluong, Type, Taikhoan)VALUES ('{0}', '{1}', '{2}', N'{3}', {4}, {5}, N'{6}');"
+                    , thoigian, buaan, ghichu, tennguyenlieu, soluong, type, Tk);
                 conn.Thucthi(truyvan);
                 buttonLammoi_Click(sender, e);
             }
@@ -241,7 +251,10 @@ namespace HealthyApp
             int tong = 0;
             for(int i = 0; i < dataTable.Rows.Count; i++)
             {
-                tong += Convert.ToInt32(dataTable.Rows[i]["Tong"]);
+                if (dataTable.Rows[i]["Tong"] != DBNull.Value)
+                {
+                    tong += Convert.ToInt32(dataTable.Rows[i]["Tong"]);
+                }
             }
             textBoxTongCalo.Text = Convert.ToString(tong);
             if (textBoxTongCalo.Text != "")

@@ -33,13 +33,13 @@
             côngThứcToolStripMenuItem = new ToolStripMenuItem();
             chỉSốCơThểToolStripMenuItem = new ToolStripMenuItem();
             thốngKêToolStripMenuItem = new ToolStripMenuItem();
-            tàiKhoảnToolStripMenuItem = new ToolStripMenuItem();
+            cáNhânToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, côngThứcToolStripMenuItem, chỉSốCơThểToolStripMenuItem, thốngKêToolStripMenuItem, tàiKhoảnToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { trangChủToolStripMenuItem, côngThứcToolStripMenuItem, chỉSốCơThểToolStripMenuItem, thốngKêToolStripMenuItem, cáNhânToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -50,7 +50,7 @@
             // trangChủToolStripMenuItem
             // 
             trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
-            trangChủToolStripMenuItem.Size = new Size(71, 20);
+            trangChủToolStripMenuItem.Size = new Size(73, 20);
             trangChủToolStripMenuItem.Text = "Trang chủ";
             trangChủToolStripMenuItem.Click += trangChủToolStripMenuItem_Click;
             // 
@@ -66,18 +66,27 @@
             chỉSốCơThểToolStripMenuItem.Name = "chỉSốCơThểToolStripMenuItem";
             chỉSốCơThểToolStripMenuItem.Size = new Size(88, 20);
             chỉSốCơThểToolStripMenuItem.Text = "Chỉ số cơ thể";
+            //chỉSốCơThểToolStripMenuItem.Click += chỉSốCơThểToolStripMenuItem_Click;
             // 
             // thốngKêToolStripMenuItem
             // 
             thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            thốngKêToolStripMenuItem.Size = new Size(68, 20);
+            thốngKêToolStripMenuItem.Size = new Size(69, 20);
             thốngKêToolStripMenuItem.Text = "Thống kê";
             // 
-            // tàiKhoảnToolStripMenuItem
+            // cáNhânToolStripMenuItem
             // 
-            tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
-            tàiKhoảnToolStripMenuItem.Size = new Size(69, 20);
-            tàiKhoảnToolStripMenuItem.Text = "Tài khoản";
+//<<<<<<< HEAD
+//            tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
+//            tàiKhoảnToolStripMenuItem.Size = new Size(69, 20);
+//            tàiKhoảnToolStripMenuItem.Text = "Tài khoản";
+//            tàiKhoảnToolStripMenuItem.Click += tàiKhoảnToolStripMenuItem_Click;
+//=======
+//            cáNhânToolStripMenuItem.Name = "cáNhânToolStripMenuItem";
+//            cáNhânToolStripMenuItem.Size = new Size(63, 20);
+//            cáNhânToolStripMenuItem.Text = "Cá nhân";
+//            cáNhânToolStripMenuItem.Click += cáNhânToolStripMenuItem_Click;
+//>>>>>>> 4185ac5808b7c99d81dc4118fb0f7b1ee2f61e3f
             // 
             // HeThong
             // 
@@ -92,6 +101,7 @@
             Name = "HeThong";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Healthy App";
+            //FormClosed += HeThong_FormClosed;
             Load += HeThong_Load;
             SizeChanged += HeThong_SizeChanged;
             menuStrip1.ResumeLayout(false);
@@ -107,6 +117,6 @@
         private ToolStripMenuItem côngThứcToolStripMenuItem;
         private ToolStripMenuItem chỉSốCơThểToolStripMenuItem;
         private ToolStripMenuItem thốngKêToolStripMenuItem;
-        private ToolStripMenuItem tàiKhoảnToolStripMenuItem;
+        private ToolStripMenuItem cáNhânToolStripMenuItem;
     }
 }

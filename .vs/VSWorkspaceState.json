@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\HealthyApp"
+    "\\HealthyApp",
+    "\\HealthyApp\\Properties"
   ],
-  "SelectedNode": "\\HealthyApp\\CongThuc.cs",
+  "SelectedNode": "\\HealthyApp\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

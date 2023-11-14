@@ -12,8 +12,10 @@ namespace HealthyApp
 {
     public partial class HeThong : Form
     {
-        public HeThong()
+        string Tk;
+        public HeThong(string taikhoan)
         {
+            Tk = taikhoan;
             InitializeComponent();
         }
         private void Center(Form form)
@@ -36,7 +38,7 @@ namespace HealthyApp
             {
                 ActiveMdiChild.Close();
             }
-            TrangChu trangChu = new TrangChu();
+            TrangChu trangChu = new TrangChu(Tk);
             trangChu.MdiParent = this;
             trangChu.Dock = DockStyle.Fill;
             this.ClientSize = trangChu.Size;
@@ -60,11 +62,54 @@ namespace HealthyApp
             {
                 ActiveMdiChild.Close();
             }
-            CongThuc congThuc = new CongThuc();
+            CongThuc congThuc = new CongThuc(Tk);
             congThuc.MdiParent = this;
             congThuc.Dock = DockStyle.Fill;
             this.ClientSize = congThuc.Size;
             congThuc.Show();
         }
+
+//<<<<<<< HEAD
+//        private void tàiKhoảnToolStripMenuItem_Click(object sender, EventArgs e)
+//=======
+//        private void chỉSốCơThểToolStripMenuItem_Click(object sender, EventArgs e)
+//>>>>>>> 4185ac5808b7c99d81dc4118fb0f7b1ee2f61e3f
+//        {
+//            if (ActiveMdiChild != null)
+//            {
+//                ActiveMdiChild.Close();
+//            }
+//<<<<<<< HEAD
+//            TaiKhoan taiKhoan = new TaiKhoan(Tk);
+//            taiKhoan.MdiParent = this;
+//            taiKhoan.Dock = DockStyle.Fill;
+//            this.ClientSize = taiKhoan.Size;
+//            taiKhoan.Show();
+//        }
+
+//        private void HeThong_FormClosed(object sender, FormClosedEventArgs e)
+//        {
+//            Application.Exit();
+//=======
+//            ChiSoCoThe b = new ChiSoCoThe();
+//            b.MdiParent = this;
+//            b.Dock = DockStyle.Fill;
+//            this.ClientSize = b.Size;
+//            b.Show();
+//        }
+
+//        private void cáNhânToolStripMenuItem_Click(object sender, EventArgs e)
+//        {
+//            if (ActiveMdiChild != null)
+//            {
+//                ActiveMdiChild.Close();
+//            }
+//            CaNhan c = new CaNhan();
+//            c.MdiParent = this;
+//            c.Dock = DockStyle.Fill;
+//            this.ClientSize = c.Size;
+//            c.Show();
+//>>>>>>> 4185ac5808b7c99d81dc4118fb0f7b1ee2f61e3f
+        }
     }
-}
+//}

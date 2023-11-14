@@ -9,7 +9,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DangNhap.cs" />
+    <Compile Remove="DangNhap.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="DangNhap.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>
