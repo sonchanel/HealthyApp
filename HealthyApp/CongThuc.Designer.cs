@@ -49,7 +49,7 @@
             dataGridCongThuc.RowHeadersVisible = false;
             dataGridCongThuc.RowTemplate.Height = 25;
             dataGridCongThuc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridCongThuc.Size = new Size(434, 347);
+            dataGridCongThuc.Size = new Size(476, 333);
             dataGridCongThuc.TabIndex = 1;
             dataGridCongThuc.CellClick += dataGridCongThuc_CellClick;
             dataGridCongThuc.CellContentClick += dataGridCongThuc_CellContentClick;
@@ -67,7 +67,7 @@
             // 
             // buttonCongthuc
             // 
-            buttonCongthuc.Location = new Point(371, 47);
+            buttonCongthuc.Location = new Point(413, 47);
             buttonCongthuc.Name = "buttonCongthuc";
             buttonCongthuc.Size = new Size(75, 23);
             buttonCongthuc.TabIndex = 0;
@@ -77,7 +77,7 @@
             // 
             // buttonXoa
             // 
-            buttonXoa.Location = new Point(257, 47);
+            buttonXoa.Location = new Point(299, 47);
             buttonXoa.Name = "buttonXoa";
             buttonXoa.Size = new Size(108, 23);
             buttonXoa.TabIndex = 2;
@@ -89,7 +89,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(458, 460);
+            ClientSize = new Size(500, 450);
             Controls.Add(buttonXoa);
             Controls.Add(buttonCongthuc);
             Controls.Add(label1);

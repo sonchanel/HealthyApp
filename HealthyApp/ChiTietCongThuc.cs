@@ -18,8 +18,10 @@ namespace HealthyApp
         String tencongthuc = "";
         int Tuychon;
         DataTable dt = new DataTable();
-        public ChiTietCongThuc(int tuychon)
+        string Tk;
+        public ChiTietCongThuc(int tuychon, string taikhoan)
         {
+            Tk = taikhoan;
             Tuychon = tuychon;
             InitializeComponent();
 
@@ -38,8 +40,8 @@ namespace HealthyApp
         {
             if (tencongthuc.Length > 0)
             {
-                dataGridNguyenLieu.DataSource = conn.LayDuLieu(string.Format("select Id,Tennguyenlieu,Donvi from Nguyenlieu where Tennguyenlieu not in (select Nguyenlieu.Tennguyenlieu from Congthuc,Chitietcongthuc,Nguyenlieu where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Tencongthuc like N'{0}')"
-                                                                , tencongthuc));
+                dataGridNguyenLieu.DataSource = conn.LayDuLieu(string.Format("select Id,Tennguyenlieu,Donvi from Nguyenlieu where Tennguyenlieu not in (select Nguyenlieu.Tennguyenlieu from Congthuc,Chitietcongthuc,Nguyenlieu where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Tencongthuc like N'{0}' and Taikhoan = '{1}')"
+                                                                , tencongthuc, Tk));
                 dataGridNguyenLieu.Columns["Id"].Visible = false;
                 dataGridNguyenLieu.Columns["Tennguyenlieu"].HeaderCell.Value = "Nguyên liệu";
                 dataGridNguyenLieu.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
@@ -56,8 +58,8 @@ namespace HealthyApp
         {
             if (tencongthuc.Length > 0)
             {
-                dataGridNguyenlieuCT.DataSource = conn.LayDuLieu(string.Format("select Id_nguyenlieu,Nguyenlieu.Tennguyenlieu, Chitietcongthuc.Soluong from Congthuc,Chitietcongthuc,Nguyenlieu where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Tencongthuc like N'{0}'"
-                                                                , tencongthuc));
+                dataGridNguyenlieuCT.DataSource = conn.LayDuLieu(string.Format("select Id_nguyenlieu,Nguyenlieu.Tennguyenlieu, Chitietcongthuc.Soluong from Congthuc,Chitietcongthuc,Nguyenlieu where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Tencongthuc like N'{0}' and Taikhoan = '{1}'"
+                                                                , tencongthuc, Tk));
                 dataGridNguyenlieuCT.Columns["Tennguyenlieu"].HeaderCell.Value = "Nguyên liệu";
                 dataGridNguyenlieuCT.Columns["Soluong"].HeaderCell.Value = "Số lượng";
                 dataGridNguyenlieuCT.Columns["Id_nguyenlieu"].Visible = false;
@@ -94,12 +96,14 @@ namespace HealthyApp
             {
                 bool taomoi = true;
                 tencongthuc = textBoxTaomoi.Text;
-                string truyvan = "select Tencongthuc as Ten from Congthuc";
+                string truyvan = string.Format("select Tencongthuc as Ten from Congthuc where Taikhoan = '{0}'"
+                    , Tk);
                 DataTable congthuc = conn.LayDuLieu(truyvan);
                 truyvan = "select Tennguyenlieu as Ten from Nguyenlieu";
                 DataTable nguyenlieu = conn.LayDuLieu(truyvan);
                 congthuc.Merge(nguyenlieu);
-                for(int i = 0;i < congthuc.Rows.Count; i++) {
+                for (int i = 0; i < congthuc.Rows.Count; i++)
+                {
                     if (Convert.ToString(congthuc.Rows[i]["Ten"]).Equals(tencongthuc))
                     {
                         taomoi = false;
@@ -107,8 +111,8 @@ namespace HealthyApp
                 }
                 if (taomoi)
                 {
-                    truyvan = string.Format("INSERT INTO Congthuc VALUES (N'{0}', N'1(khẩu phần)', N'' );"
-                        , tencongthuc);
+                    truyvan = string.Format("INSERT INTO Congthuc VALUES (N'{0}', N'1(khẩu phần)', N'' , '{1}');"
+                        , tencongthuc, Tk);
                     conn.Thucthi(truyvan);
                     congthucload();
                 }
@@ -140,13 +144,14 @@ namespace HealthyApp
         {
             if (tencongthuc.Length > 0)
             {
-                string truyvan = string.Format("select Tenchiso, Chisodinhduong.Donvi, Sum(Luongchiso*Chitietcongthuc.Soluong) as Tong from Nguyenlieu, Congthuc, Chitietcongthuc,Chisodinhduong where Chisodinhduong.Id=Nguyenlieu.Id and Nguyenlieu.Id = Chitietcongthuc.Id_nguyenlieu and Chitietcongthuc.Id_congthuc = Congthuc.Id_congthuc and Tencongthuc like N'{0}' group by Tenchiso ,Chisodinhduong.Donvi order by Tenchiso"
-                    , tencongthuc);
+                string truyvan = string.Format("select Tenchiso, Chisodinhduong.Donvi, Sum(Luongchiso*Chitietcongthuc.Soluong) as Tong from Nguyenlieu, Congthuc, Chitietcongthuc,Chisodinhduong where Chisodinhduong.Id=Nguyenlieu.Id and Nguyenlieu.Id = Chitietcongthuc.Id_nguyenlieu and Chitietcongthuc.Id_congthuc = Congthuc.Id_congthuc and Tencongthuc like N'{0}' and Taikhoan = '{1}' group by Tenchiso ,Chisodinhduong.Donvi order by Tenchiso"
+                    , tencongthuc, Tk);
                 dataGridTong.DataSource = conn.LayDuLieu(truyvan);
                 dataGridTong.Columns["Tenchiso"].HeaderCell.Value = "Chỉ số";
                 dataGridTong.Columns["Tong"].HeaderCell.Value = "Tổng";
                 dataGridTong.Columns["Donvi"].HeaderCell.Value = "Đơn vị";
                 dataGridTong.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dataGridTong.Columns["Tong"].DefaultCellStyle.Format = "N1";
                 for (int i = 0; i < dataGridTong.Columns.Count; i++)
                 {
                     dataGridTong.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -157,8 +162,8 @@ namespace HealthyApp
         {
             if (tencongthuc.Length > 0)
             {
-                string truyvan = string.Format("select case when Ghichu is null then '' else Ghichu end as Ghichu from Congthuc where Tencongthuc like N'{0}'"
-                    , tencongthuc);
+                string truyvan = string.Format("select case when Ghichu is null then '' else Ghichu end as Ghichu from Congthuc where Tencongthuc like N'{0}' and Taikhoan = '{1}'"
+                    , tencongthuc, Tk);
                 DataTable dt = new DataTable();
                 dt = conn.LayDuLieu(truyvan);
                 TextBoxGhichu.Text = dt.Rows[0]["Ghichu"].ToString();
@@ -179,6 +184,7 @@ namespace HealthyApp
             dataGridChitiet.Columns.Add("Tong", "Tổng");
             dataGridChitiet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tinhtong();
+            dataGridChitiet.Columns["Tong"].DefaultCellStyle.Format = "N1";
             for (int i = 0; i < dataGridChitiet.Columns.Count; i++)
             {
                 dataGridChitiet.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -263,8 +269,8 @@ namespace HealthyApp
         {
             if (tencongthuc.Length > 0)
             {
-                string truyvan = string.Format("select Id_congthuc from Congthuc where Tencongthuc like N'{0}'"
-                    , tencongthuc);
+                string truyvan = string.Format("select Id_congthuc from Congthuc where Tencongthuc like N'{0}' and Taikhoan = '{1}'"
+                    , tencongthuc, Tk);
                 DataTable dataTable = new DataTable();
                 dataTable = conn.LayDuLieu(truyvan);
                 string id_congthuc = dataTable.Rows[0]["Id_congthuc"].ToString();
@@ -319,8 +325,8 @@ namespace HealthyApp
         void capnhapcongthuc()
         {
             string id_congthuc = layidcongthuc();
-            string truyvan = string.Format("UPDATE Congthuc SET Ghichu = N'{0}',Tencongthuc = N'{1}' WHERE Id_congthuc = '{2}'"
-                , TextBoxGhichu.Text, textBoxTaomoi.Text, id_congthuc);
+            string truyvan = string.Format("UPDATE Congthuc SET Ghichu = N'{0}',Tencongthuc = N'{1}' WHERE Id_congthuc = '{2}' and Taikhoan = '{3}'"
+                , TextBoxGhichu.Text, textBoxTaomoi.Text, id_congthuc, Tk);
             conn.Thucthi(truyvan);
             tencongthuc = textBoxTaomoi.Text;
             reload();
@@ -354,6 +360,15 @@ namespace HealthyApp
         private void dataGridNguyenlieuCT_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            if (this.MdiParent != null && this.MdiParent is HeThong)
+            {
+                HeThong heThong = (HeThong)this.MdiParent;
+                heThong.congthucclick();
+            }
         }
     }
 }

@@ -14,13 +14,15 @@ namespace HealthyApp
     public partial class CongThuc : Form
     {
         KetNoi conn = new KetNoi();
-        public CongThuc()
+        string Tk;
+        public CongThuc(string taikhoan)
         {
+            Tk = taikhoan;
             InitializeComponent();
         }
         void chitietformload(int tuychon)
         {
-            ChiTietCongThuc chiTietCongThuc = new ChiTietCongThuc(tuychon);
+            ChiTietCongThuc chiTietCongThuc = new ChiTietCongThuc(tuychon, Tk);
             if (ActiveMdiChild != null)
             {
                 ActiveMdiChild.Close();
@@ -33,8 +35,8 @@ namespace HealthyApp
         void congthucload()
         {
             buttonXoa.Enabled = false;
-            string truyvan = string.Format("select Tencongthuc,Id_congthuc,Donvi,case when Ghichu is null then '' else Ghichu end as Ghichu from congthuc"
-                );
+            string truyvan = string.Format("select Tencongthuc,Id_congthuc,Donvi,case when Ghichu is null then '' else Ghichu end as Ghichu from congthuc where Taikhoan = '{0}'"
+                , Tk);
             DataTable dataTable = conn.LayDuLieu(truyvan);
             dataGridCongThuc.DataSource = dataTable;
             dataGridCongThuc.Columns["Tencongthuc"].HeaderCell.Value = "Công thức";

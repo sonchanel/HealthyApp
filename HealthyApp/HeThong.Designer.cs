@@ -78,6 +78,7 @@
             tàiKhoảnToolStripMenuItem.Name = "tàiKhoảnToolStripMenuItem";
             tàiKhoảnToolStripMenuItem.Size = new Size(69, 20);
             tàiKhoảnToolStripMenuItem.Text = "Tài khoản";
+            tàiKhoảnToolStripMenuItem.Click += tàiKhoảnToolStripMenuItem_Click;
             // 
             // HeThong
             // 
@@ -92,6 +93,7 @@
             Name = "HeThong";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Healthy App";
+            FormClosed += HeThong_FormClosed;
             Load += HeThong_Load;
             SizeChanged += HeThong_SizeChanged;
             menuStrip1.ResumeLayout(false);

@@ -45,6 +45,7 @@
             TextBoxGhichu = new RichTextBox();
             label1 = new Label();
             textBoxTongCalo = new TextBox();
+            buttonBack = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridThucdon).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridNguyenLieu).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridChitiet).BeginInit();
@@ -227,7 +228,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(440, 44);
+            label1.Location = new Point(282, 44);
             label1.Name = "label1";
             label1.Size = new Size(61, 15);
             label1.TabIndex = 26;
@@ -235,17 +236,28 @@
             // 
             // textBoxTongCalo
             // 
-            textBoxTongCalo.Location = new Point(507, 41);
+            textBoxTongCalo.Location = new Point(349, 41);
             textBoxTongCalo.Name = "textBoxTongCalo";
             textBoxTongCalo.ReadOnly = true;
             textBoxTongCalo.Size = new Size(122, 23);
             textBoxTongCalo.TabIndex = 27;
+            // 
+            // buttonBack
+            // 
+            buttonBack.Location = new Point(554, 41);
+            buttonBack.Name = "buttonBack";
+            buttonBack.Size = new Size(75, 23);
+            buttonBack.TabIndex = 28;
+            buttonBack.Text = "Quay lại";
+            buttonBack.UseVisualStyleBackColor = true;
+            buttonBack.Click += buttonBack_Click;
             // 
             // ThucDon
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(641, 538);
+            Controls.Add(buttonBack);
             Controls.Add(textBoxTongCalo);
             Controls.Add(label1);
             Controls.Add(TextBoxGhichu);
@@ -293,5 +305,6 @@
         private RichTextBox TextBoxGhichu;
         private Label label1;
         private TextBox textBoxTongCalo;
+        private Button buttonBack;
     }
 }

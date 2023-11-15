@@ -16,8 +16,10 @@ namespace HealthyApp
         String time;
         DateTime dateTime;
         KetNoi conn = new KetNoi();
-        public ThucDon(String thoigian, DateTime datetime)
+        string Tk;
+        public ThucDon(String thoigian, DateTime datetime, string taikhoan)
         {
+            Tk = taikhoan;
             time = thoigian;
             dateTime = datetime;
             InitializeComponent();
@@ -30,8 +32,8 @@ namespace HealthyApp
         void reload()
         {
             dateTimeTrangChu.Value = dateTime;
-            dataGridThucdon.DataSource = conn.LayDuLieu(string.Format("select Type,Id,Tennguyenlieu,Soluong,case when Ghichu is null then '' else Ghichu end as Ghichu from thucdon where Buaan = '{0}' and Thoigian = '{1}'"
-                                , time, dateTimeTrangChu.Value));
+            dataGridThucdon.DataSource = conn.LayDuLieu(string.Format("select Type,Id,Tennguyenlieu,Soluong,case when Ghichu is null then '' else Ghichu end as Ghichu from thucdon where Buaan = '{0}' and Thoigian = '{1}' and Taikhoan = '{2}'"
+                                , time, dateTimeTrangChu.Value, Tk));
             dataGridThucdon.Columns["Id"].Visible = false;
             dataGridThucdon.Columns["Type"].Visible = false;
             String title = "";
@@ -45,10 +47,10 @@ namespace HealthyApp
 
             conn.renameDTV(dataGridThucdon);
 
-            DataTable nguyenlieu = conn.LayDuLieu(string.Format("select Tennguyenlieu,Donvi from Nguyenlieu where Tennguyenlieu not in (SELECT Tennguyenlieu FROM Thucdon where Buaan = '{0}' and Thoigian = '{1}')"
-                                                            , time, dateTimeTrangChu.Value));
-            DataTable congthuc = conn.LayDuLieu(string.Format("select Tencongthuc as Tennguyenlieu,Donvi from Congthuc "
-                                                            ));
+            DataTable nguyenlieu = conn.LayDuLieu(string.Format("select Tennguyenlieu,Donvi from Nguyenlieu where Tennguyenlieu not in (SELECT Tennguyenlieu FROM Thucdon where Buaan = '{0}' and Thoigian = '{1}' and Taikhoan = '{2}')"
+                                                            , time, dateTimeTrangChu.Value, Tk));
+            DataTable congthuc = conn.LayDuLieu(string.Format("select Tencongthuc as Tennguyenlieu,Donvi from Congthuc where Taikhoan = '{0}'"
+                                                            , Tk));
             congthuc.Columns.Add("Type", typeof(string));
             congthuc.Columns["Type"].DefaultValue = "0";
             for (int i = 0; i < congthuc.Rows.Count; i++)
@@ -149,8 +151,8 @@ namespace HealthyApp
             }
             else
             {
-                dataGridChitiet.DataSource = conn.LayDuLieu(string.Format("select Tenchiso,Sum(Luongchiso*Soluong) as Luongchiso,Chisodinhduong.Donvi from Chisodinhduong,Chitietcongthuc,Congthuc where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu=Chisodinhduong.Id and Tencongthuc like N'{0}' group by Tenchiso,Chisodinhduong.Donvi ORDER BY Tenchiso"
-                    , nguyenlieu));
+                dataGridChitiet.DataSource = conn.LayDuLieu(string.Format("select Tenchiso,Sum(Luongchiso*Soluong) as Luongchiso,Chisodinhduong.Donvi from Chisodinhduong,Chitietcongthuc,Congthuc where Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu=Chisodinhduong.Id and Tencongthuc like N'{0}' and Taikhoan = '{1}' group by Tenchiso,Chisodinhduong.Donvi ORDER BY Tenchiso"
+                    , nguyenlieu, Tk));
             }
             dataGridChitiet.Columns["Tenchiso"].HeaderCell.Value = "Chỉ số";
             dataGridChitiet.Columns["Luongchiso"].HeaderCell.Value = "Khối lượng";
@@ -159,6 +161,7 @@ namespace HealthyApp
             dataGridChitiet.Columns.Add("Tong", "Tổng");
             dataGridChitiet.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             tinhtong();
+            dataGridChitiet.Columns["Tong"].DefaultCellStyle.Format = "N1";
             for (int i = 0; i < dataGridChitiet.Columns.Count; i++)
             {
                 dataGridChitiet.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -205,8 +208,8 @@ namespace HealthyApp
                 ghichu = TextBoxGhichu.Text;
                 tennguyenlieu = title;
                 soluong = Convert.ToInt32(numericSoluong.Value);
-                String truyvan = string.Format("INSERT INTO Thucdon(Thoigian, Buaan, Ghichu, Tennguyenlieu, Soluong, Type)VALUES ('{0}', '{1}', '{2}', N'{3}', {4}, {5});"
-                    , thoigian, buaan, ghichu, tennguyenlieu, soluong, type);
+                String truyvan = string.Format("INSERT INTO Thucdon(Thoigian, Buaan, Ghichu, Tennguyenlieu, Soluong, Type, Taikhoan)VALUES ('{0}', '{1}', '{2}', N'{3}', {4}, {5}, '{6}');"
+                    , thoigian, buaan, ghichu, tennguyenlieu, soluong, type, Tk);
                 conn.Thucthi(truyvan);
                 buttonLammoi_Click(sender, e);
             }
@@ -231,17 +234,20 @@ namespace HealthyApp
 
         private void dataGridThucdon_DataSourceChanged(object sender, EventArgs e)
         {
-            String truyvan = string.Format("select Sum(Tong) as Tong from (select Sum(Luongchiso*Thucdon.Soluong) as Tong from Thucdon,Nguyenlieu,Chisodinhduong where Thucdon.Thoigian = '{0}' and Buaan = '{1}' and Nguyenlieu.Tennguyenlieu = Thucdon.Tennguyenlieu and Nguyenlieu.Id = Chisodinhduong.Id and Tenchiso = 'Calo' group by Luongchiso,Thucdon.Soluong) as BangCalo"
-                , dateTimeTrangChu.Value, time);
-            DataTable dataTable =  conn.LayDuLieu(truyvan);
-            truyvan = string.Format("select Sum(Thucdon.Soluong*Luongchiso*Chitietcongthuc.Soluong) as Tong from Thucdon,Congthuc,Chitietcongthuc,Nguyenlieu,Chisodinhduong where Thucdon.Thoigian = '{0}' and Buaan = '{1}' and Congthuc.Tencongthuc = Thucdon.Tennguyenlieu and Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Nguyenlieu.Id= Chisodinhduong.Id and Tenchiso = 'Calo'"
-                ,dateTimeTrangChu.Value,time);
+            String truyvan = string.Format("select Sum(Tong) as Tong from (select Sum(Luongchiso*Thucdon.Soluong) as Tong from Thucdon,Nguyenlieu,Chisodinhduong where Thucdon.Thoigian = '{0}' and Buaan = '{1}' and Taikhoan = '{2}' and Nguyenlieu.Tennguyenlieu = Thucdon.Tennguyenlieu and Nguyenlieu.Id = Chisodinhduong.Id and Tenchiso = 'Calo' group by Luongchiso,Thucdon.Soluong) as BangCalo"
+                , dateTimeTrangChu.Value, time, Tk);
+            DataTable dataTable = conn.LayDuLieu(truyvan);
+            truyvan = string.Format("select Sum(Thucdon.Soluong*Luongchiso*Chitietcongthuc.Soluong) as Tong from Thucdon,Congthuc,Chitietcongthuc,Nguyenlieu,Chisodinhduong where Thucdon.Thoigian = '{0}' and Buaan = '{1}' and Thucdon.Taikhoan = '{2}' and Congthuc.Tencongthuc = Thucdon.Tennguyenlieu and Congthuc.Id_congthuc = Chitietcongthuc.Id_congthuc and Chitietcongthuc.Id_nguyenlieu = Nguyenlieu.Id and Nguyenlieu.Id= Chisodinhduong.Id and Tenchiso = 'Calo'"
+                , dateTimeTrangChu.Value, time, Tk);
             DataTable dataTable1 = conn.LayDuLieu(truyvan);
             dataTable.Merge(dataTable1);
             int tong = 0;
-            for(int i = 0; i < dataTable.Rows.Count; i++)
+            for (int i = 0; i < dataTable.Rows.Count; i++)
             {
-                tong += Convert.ToInt32(dataTable.Rows[i]["Tong"]);
+                if (dataTable.Rows[i]["Tong"] != DBNull.Value)
+                {
+                    tong += Convert.ToInt32(dataTable.Rows[i]["Tong"]);
+                }
             }
             textBoxTongCalo.Text = Convert.ToString(tong);
             if (textBoxTongCalo.Text != "")
@@ -267,6 +273,15 @@ namespace HealthyApp
         {
             dgvclick();
             dataGridChitiet.BorderStyle = BorderStyle.FixedSingle;
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            if (this.MdiParent != null && this.MdiParent is HeThong)
+            {
+                HeThong heThong = (HeThong)this.MdiParent;
+                heThong.trangchuclick();
+            }
         }
     }
 

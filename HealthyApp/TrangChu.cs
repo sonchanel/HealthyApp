@@ -8,8 +8,10 @@ namespace HealthyApp
     public partial class TrangChu : Form
     {
         KetNoi conn = new KetNoi();
-        public TrangChu()
+        string Tk;
+        public TrangChu(string taikhoan)
         {
+            Tk = taikhoan;
             InitializeComponent();
         }
 
@@ -19,8 +21,8 @@ namespace HealthyApp
         }
         String truyvan(String time)
         {
-            return string.Format("select Tennguyenlieu,Soluong,case when Ghichu is null then '' else Ghichu end as Ghichu from thucdon where Buaan = '{0}' and Thoigian = '{1}'"
-                                , time, dateTimeTrangChu.Value); ;
+            return string.Format("select Tennguyenlieu,Soluong,case when Ghichu is null then '' else Ghichu end as Ghichu from thucdon where Buaan = '{0}' and Thoigian = '{1}' and Taikhoan = '{2}'"
+                                , time, dateTimeTrangChu.Value, Tk); ;
         }
 
 
@@ -108,7 +110,7 @@ namespace HealthyApp
 
         void buttonClick(String time)
         {
-            ThucDon thucDon = new ThucDon(time, dateTimeTrangChu.Value);
+            ThucDon thucDon = new ThucDon(time, dateTimeTrangChu.Value, Tk);
             if (ActiveMdiChild != null)
             {
                 ActiveMdiChild.Close();

@@ -50,6 +50,7 @@
             labelChitiet = new Label();
             dataGridChitiet = new DataGridView();
             dataGridNguyenLieu = new DataGridView();
+            buttonBack = new Button();
             panelChitiet.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericSoluong).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridTong).BeginInit();
@@ -321,12 +322,23 @@
             dataGridNguyenLieu.TabIndex = 2;
             dataGridNguyenLieu.CellClick += dataGridNguyenLieu_CellClick;
             // 
+            // buttonBack
+            // 
+            buttonBack.Location = new Point(714, 12);
+            buttonBack.Name = "buttonBack";
+            buttonBack.Size = new Size(75, 23);
+            buttonBack.TabIndex = 31;
+            buttonBack.Text = "Quay lại";
+            buttonBack.UseVisualStyleBackColor = true;
+            buttonBack.Click += buttonBack_Click;
+            // 
             // ChiTietCongThuc
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(826, 542);
+            Controls.Add(buttonBack);
             Controls.Add(panelChitiet);
             Controls.Add(buttonTaomoi);
             Controls.Add(textBoxTaomoi);
@@ -371,5 +383,6 @@
         private Button buttonXoa;
         private Button buttonSua;
         private Button buttonCapnhap;
+        private Button buttonBack;
     }
 }

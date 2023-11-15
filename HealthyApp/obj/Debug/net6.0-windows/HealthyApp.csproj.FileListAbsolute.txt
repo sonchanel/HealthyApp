@@ -138,3 +138,67 @@ D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\n
 D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.pdb
 D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.genruntimeconfig.cache
 D:\Study\.Net\Do An\HealthyApp\sonchanel\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\ref\HealthyApp.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.exe
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.deps.json
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.runtimeconfig.json
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.pdb
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.AssemblyReference.cache
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ChiTietCongThuc.resources
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.CongThuc.resources
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.HeThong.resources
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ThucDon.resources
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.TrangChu.resources
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.GenerateResource.cache
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.AssemblyInfoInputs.cache
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.AssemblyInfo.cs
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.CoreCompileInputs.cache
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.CopyComplete
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\refint\HealthyApp.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.pdb
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.genruntimeconfig.cache
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\ref\HealthyApp.dll
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.DangNhap.resources
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.Properties.Resources.resources
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.TaiKhoan.resources
+D:\Study\Đồ án\DOAN - Copy\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.DangKi.resources
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.AssemblyReference.cache
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ChiTietCongThuc.resources
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.CongThuc.resources
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.DangKi.resources
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.DangNhap.resources
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.HeThong.resources
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.Properties.Resources.resources
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.TaiKhoan.resources
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ThucDon.resources
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.TrangChu.resources
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.GenerateResource.cache
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.AssemblyInfoInputs.cache
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.AssemblyInfo.cs
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.CoreCompileInputs.cache
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.dll
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\refint\HealthyApp.dll
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.pdb
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.exe
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.deps.json
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.runtimeconfig.json
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.dll
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\HealthyApp.pdb
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.CopyComplete
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.genruntimeconfig.cache
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\ref\HealthyApp.dll

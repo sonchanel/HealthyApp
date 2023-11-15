@@ -470,19 +470,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SSS\\.nuget\\packages\\": {}
+    "C:\\Users\\sonsi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Study\\.Net\\Do AN\\HealthyApp\\HealthyApp\\HealthyApp.csproj",
+      "projectUniqueName": "D:\\Study\\Đồ án\\DOAN\\HealthyApp\\HealthyApp.csproj",
       "projectName": "HealthyApp",
-      "projectPath": "D:\\Study\\.Net\\Do AN\\HealthyApp\\HealthyApp\\HealthyApp.csproj",
-      "packagesPath": "C:\\Users\\SSS\\.nuget\\packages\\",
-      "outputPath": "D:\\Study\\.Net\\Do AN\\HealthyApp\\HealthyApp\\obj\\",
+      "projectPath": "D:\\Study\\Đồ án\\DOAN\\HealthyApp\\HealthyApp.csproj",
+      "packagesPath": "C:\\Users\\sonsi\\.nuget\\packages\\",
+      "outputPath": "D:\\Study\\Đồ án\\DOAN\\HealthyApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SSS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sonsi\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
