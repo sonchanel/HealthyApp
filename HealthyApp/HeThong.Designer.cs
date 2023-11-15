@@ -66,6 +66,7 @@
             chỉSốCơThểToolStripMenuItem.Name = "chỉSốCơThểToolStripMenuItem";
             chỉSốCơThểToolStripMenuItem.Size = new Size(88, 20);
             chỉSốCơThểToolStripMenuItem.Text = "Chỉ số cơ thể";
+            chỉSốCơThểToolStripMenuItem.Click += chỉSốCơThểToolStripMenuItem_Click;
             // 
             // thốngKêToolStripMenuItem
             // 

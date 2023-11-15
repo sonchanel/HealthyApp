@@ -202,3 +202,4 @@ D:\Study\Đồ án\DOAN\HealthyApp\bin\Debug\net6.0-windows\runtimes\win\lib\net
 D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.csproj.CopyComplete
 D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.genruntimeconfig.cache
 D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\ref\HealthyApp.dll
+D:\Study\Đồ án\DOAN\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.ChiSoCoThe.resources

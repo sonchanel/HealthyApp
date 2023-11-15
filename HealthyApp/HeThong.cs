@@ -30,7 +30,7 @@ namespace HealthyApp
         {
             trangChủToolStripMenuItem_Click(sender, e);
             Center(this);
-            
+
         }
 
         private void trangChủToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,7 +93,7 @@ namespace HealthyApp
             taiKhoan.Show();
         }
 
-        
+
 
         private void HeThong_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -107,6 +107,19 @@ namespace HealthyApp
                 Dangnhap.Show();
                 Hide();
             }
+        }
+
+        private void chỉSốCơThểToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            ChiSoCoThe chiSoCoThe = new ChiSoCoThe();
+            chiSoCoThe.MdiParent = this;
+            chiSoCoThe.Dock = DockStyle.Fill;
+            this.ClientSize = chiSoCoThe.Size;
+            chiSoCoThe.Show();
         }
     }
 }
