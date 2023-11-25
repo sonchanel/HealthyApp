@@ -71,8 +71,9 @@
             // thốngKêToolStripMenuItem
             // 
             thốngKêToolStripMenuItem.Name = "thốngKêToolStripMenuItem";
-            thốngKêToolStripMenuItem.Size = new Size(68, 20);
-            thốngKêToolStripMenuItem.Text = "Thống kê";
+            thốngKêToolStripMenuItem.Size = new Size(61, 20);
+            thốngKêToolStripMenuItem.Text = "Báo cáo";
+            thốngKêToolStripMenuItem.Click += thốngKêToolStripMenuItem_Click;
             // 
             // tàiKhoảnToolStripMenuItem
             // 

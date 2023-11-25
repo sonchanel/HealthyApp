@@ -67,6 +67,7 @@
             dataGridSang.Size = new Size(471, 94);
             dataGridSang.TabIndex = 2;
             dataGridSang.CellClick += dataGridSang_CellClick;
+            dataGridSang.CellContentClick += dataGridSang_CellContentClick;
             // 
             // dataGridTrua
             // 

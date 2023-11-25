@@ -121,5 +121,18 @@ namespace HealthyApp
             this.ClientSize = chiSoCoThe.Size;
             chiSoCoThe.Show();
         }
+
+        private void thốngKêToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (ActiveMdiChild != null)
+            {
+                ActiveMdiChild.Close();
+            }
+            Baocao baocao = new Baocao();
+            baocao.MdiParent = this;
+            baocao.Dock = DockStyle.Fill;
+            this.ClientSize = baocao.Size;
+            baocao.Show();
+        }
     }
 }

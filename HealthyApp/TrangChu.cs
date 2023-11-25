@@ -158,5 +158,10 @@ namespace HealthyApp
             dgvclick();
             dataGridToi.BorderStyle = BorderStyle.FixedSingle;
         }
+
+        private void dataGridSang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

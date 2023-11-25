@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Study\\Đồ án\\DOAN\\HealthyApp\\HealthyApp.csproj": {}
+    "D:\\Study\\Đồ án\\Đồ án lập trình .Net\\HealthyApp\\HealthyApp.csproj": {}
   },
   "projects": {
-    "D:\\Study\\Đồ án\\DOAN\\HealthyApp\\HealthyApp.csproj": {
+    "D:\\Study\\Đồ án\\Đồ án lập trình .Net\\HealthyApp\\HealthyApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Study\\Đồ án\\DOAN\\HealthyApp\\HealthyApp.csproj",
+        "projectUniqueName": "D:\\Study\\Đồ án\\Đồ án lập trình .Net\\HealthyApp\\HealthyApp.csproj",
         "projectName": "HealthyApp",
-        "projectPath": "D:\\Study\\Đồ án\\DOAN\\HealthyApp\\HealthyApp.csproj",
+        "projectPath": "D:\\Study\\Đồ án\\Đồ án lập trình .Net\\HealthyApp\\HealthyApp.csproj",
         "packagesPath": "C:\\Users\\sonsi\\.nuget\\packages\\",
-        "outputPath": "D:\\Study\\Đồ án\\DOAN\\HealthyApp\\obj\\",
+        "outputPath": "D:\\Study\\Đồ án\\Đồ án lập trình .Net\\HealthyApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sonsi\\AppData\\Roaming\\NuGet\\NuGet.Config",

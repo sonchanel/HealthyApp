@@ -43,13 +43,13 @@
             dataGridCongThuc.AllowUserToResizeRows = false;
             dataGridCongThuc.BackgroundColor = SystemColors.Control;
             dataGridCongThuc.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridCongThuc.Location = new Point(12, 76);
+            dataGridCongThuc.Location = new Point(12, 91);
             dataGridCongThuc.Name = "dataGridCongThuc";
             dataGridCongThuc.ReadOnly = true;
             dataGridCongThuc.RowHeadersVisible = false;
             dataGridCongThuc.RowTemplate.Height = 25;
             dataGridCongThuc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridCongThuc.Size = new Size(476, 333);
+            dataGridCongThuc.Size = new Size(476, 318);
             dataGridCongThuc.TabIndex = 1;
             dataGridCongThuc.CellClick += dataGridCongThuc_CellClick;
             dataGridCongThuc.CellContentClick += dataGridCongThuc_CellContentClick;
@@ -67,9 +67,10 @@
             // 
             // buttonCongthuc
             // 
-            buttonCongthuc.Location = new Point(413, 47);
+            buttonCongthuc.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonCongthuc.Location = new Point(381, 47);
             buttonCongthuc.Name = "buttonCongthuc";
-            buttonCongthuc.Size = new Size(75, 23);
+            buttonCongthuc.Size = new Size(107, 38);
             buttonCongthuc.TabIndex = 0;
             buttonCongthuc.Text = "Tạo mới";
             buttonCongthuc.UseVisualStyleBackColor = true;
@@ -77,9 +78,10 @@
             // 
             // buttonXoa
             // 
-            buttonXoa.Location = new Point(299, 47);
+            buttonXoa.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonXoa.Location = new Point(235, 47);
             buttonXoa.Name = "buttonXoa";
-            buttonXoa.Size = new Size(108, 23);
+            buttonXoa.Size = new Size(140, 38);
             buttonXoa.TabIndex = 2;
             buttonXoa.Text = "Xóa công thức";
             buttonXoa.UseVisualStyleBackColor = true;
