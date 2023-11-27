@@ -13,6 +13,7 @@ namespace HealthyApp
 {
     public partial class ChiSoCoThe : Form
     {
+        KetNoi conn = new KetNoi();
         public ChiSoCoThe()
         {
             InitializeComponent();
@@ -93,6 +94,9 @@ namespace HealthyApp
 
         private void btTinhtoan_Click(object sender, EventArgs e)
         {
+            string truyvan = string.Format("insert into Lichsuxemchisocothe values ({0},{1},{2},'{3}')",txtChieucao.Text ,txtCannang.Text ,txtChisoBMI.Text ,lbDanhgia.Text);
+            conn.Thucthi(truyvan);
+
             float.TryParse(txtCannang.Text, out float weight);
             float.TryParse(txtChieucao.Text, out float height);
             height = height / 100;
@@ -165,7 +169,10 @@ namespace HealthyApp
 
         private void ChiSoCoThe_Load(object sender, EventArgs e)
         {
-
+/*            string truyvan = string.Format("select Ngaysinh from Taikhoan where Taikhoan = 'a'");
+            DataTable db = conn.LayDuLieu(truyvan);
+            string a = db.Rows[0]["Ngaysinh"].ToString();
+            dateNgaysinh.Value = ;*/
         }
     }
 }
