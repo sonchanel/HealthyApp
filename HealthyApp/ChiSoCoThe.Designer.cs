@@ -57,6 +57,7 @@
             lbSothuacan = new Label();
             lbSobeophi = new Label();
             label1 = new Label();
+            btLichsu = new Button();
             SuspendLayout();
             // 
             // lbChieucao
@@ -352,11 +353,22 @@
             label1.TabIndex = 30;
             label1.Text = "Chỉ số cơ thể (BMI)";
             // 
+            // btLichsu
+            // 
+            btLichsu.Location = new Point(372, 35);
+            btLichsu.Name = "btLichsu";
+            btLichsu.Size = new Size(90, 31);
+            btLichsu.TabIndex = 31;
+            btLichsu.Text = "Lịch sử";
+            btLichsu.UseVisualStyleBackColor = true;
+            btLichsu.Click += btLichsu_Click;
+            // 
             // ChiSoCoThe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(500, 450);
+            Controls.Add(btLichsu);
             Controls.Add(label1);
             Controls.Add(lbSobeophi);
             Controls.Add(lbSothuacan);
@@ -425,5 +437,6 @@
         private Label lbSothuacan;
         private Label lbSobeophi;
         private Label label1;
+        private Button btLichsu;
     }
 }

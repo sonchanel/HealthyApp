@@ -29,23 +29,35 @@
         private void InitializeComponent()
         {
             dgvLichsu = new DataGridView();
+            btXoa = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvLichsu).BeginInit();
             SuspendLayout();
             // 
             // dgvLichsu
             // 
             dgvLichsu.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLichsu.Location = new Point(0, 1);
+            dgvLichsu.Location = new Point(0, 31);
             dgvLichsu.Name = "dgvLichsu";
             dgvLichsu.RowTemplate.Height = 25;
-            dgvLichsu.Size = new Size(442, 245);
+            dgvLichsu.Size = new Size(442, 213);
             dgvLichsu.TabIndex = 0;
+            // 
+            // btXoa
+            // 
+            btXoa.Location = new Point(367, 2);
+            btXoa.Name = "btXoa";
+            btXoa.Size = new Size(75, 23);
+            btXoa.TabIndex = 1;
+            btXoa.Text = "Xóa lịch sử";
+            btXoa.UseVisualStyleBackColor = true;
+            btXoa.Click += btXoa_Click;
             // 
             // LichSuXemChiSoCoThe
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(441, 244);
+            Controls.Add(btXoa);
             Controls.Add(dgvLichsu);
             Name = "LichSuXemChiSoCoThe";
             Load += LichSuXemChiSoCoThe_Load;
@@ -56,5 +68,6 @@
         #endregion
 
         private DataGridView dgvLichsu;
+        private Button btXoa;
     }
 }

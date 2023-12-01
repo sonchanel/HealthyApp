@@ -24,5 +24,14 @@ namespace HealthyApp
             DataTable db = conn.LayDuLieu(truyvan);
             dgvLichsu.DataSource = db;
         }
+
+        private void btXoa_Click(object sender, EventArgs e)
+        {
+            string truyvan = "delete from Lichsuxemchisocothe";
+            conn.Thucthi(truyvan);
+            truyvan = "select * from Lichsuxemchisocothe";
+            DataTable db = conn.LayDuLieu(truyvan);
+            dgvLichsu.DataSource = db;
+        }
     }
 }
