@@ -119,7 +119,7 @@ namespace HealthyApp
 			{
 				ActiveMdiChild.Close();
 			}
-			ChiSoCoThe chiSoCoThe = new ChiSoCoThe();
+			ChiSoCoThe chiSoCoThe = new ChiSoCoThe(Tk);
 			chiSoCoThe.MdiParent = this;
 			chiSoCoThe.Dock = DockStyle.Fill;
 			this.ClientSize = chiSoCoThe.Size;

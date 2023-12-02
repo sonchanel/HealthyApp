@@ -15,84 +15,43 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace HealthyApp
 {
-<<<<<<< HEAD
 	public partial class Baocao : Form
 	{
 		KetNoi conn = new KetNoi();
 		public Baocao()
 		{
 			InitializeComponent();
+			dateKhoa.Format = DateTimePickerFormat.Custom;
+			dateKhoa.CustomFormat = "MM/yyyy";
 		}
-
-		private void pictureBox1_Click(object sender, EventArgs e)
+		private void dateKhoa_ValueChanged(object sender, EventArgs e)
 		{
-			lbKhoa.Visible = false;
-			pbKhoa.Visible = false;
-			chartKhoa.Visible = true;
-			dateKhoa.Visible = true;
-			dgvKhoa.Visible = true;
-			btKhoa.Visible = true;
 			int year = dateKhoa.Value.Year;
 			int month = dateKhoa.Value.Month;
-			int day = dateKhoa.Value.Day;
 
-
-			string truyvan = string.Format("select Tenchiso ,SUM(Luongchiso) as TongLuongchiso from Chisodinhduong join Thucdon on Chisodinhduong.Id = Thucdon.Id where Thoigian = '{0}-{1}-{2}' group by Tenchiso", year, month, day);
+			string truyvan = string.Format("select Tenchiso, SUM(Luongchiso) as TongLuongchiso from Chisodinhduong join Thucdon on Chisodinhduong.Id = Thucdon.Id where MONTH(Thoigian) = {0} and YEAR(Thoigian) = {1} group by Tenchiso", month, year);
 			DataTable db = conn.LayDuLieu(truyvan);
 			dgvKhoa.DataSource = db;
-			string a = db.Rows[0]["Tenchiso"].ToString();
-			string b = db.Rows[0]["Tenchiso"].ToString();
 
-			Series series = new Series();
-			series.Points.AddXY(a, b);
-
-			chartKhoa.Series.Add(series);
-		}
-
-		private void btKhoa_Click(object sender, EventArgs e)
-		{
-			LichSuXemChiSoCoThe a = new LichSuXemChiSoCoThe();
-			a.Show();
-		}
-	}
-=======
-    public partial class Baocao : Form
-    {
-        KetNoi conn = new KetNoi();
-        public Baocao()
-        {
-            InitializeComponent();
-            dateKhoa.Format = DateTimePickerFormat.Custom;
-            dateKhoa.CustomFormat = "MM/yyyy";
-        }
-        private void dateKhoa_ValueChanged(object sender, EventArgs e)
-        {
-            int year = dateKhoa.Value.Year;
-            int month = dateKhoa.Value.Month;
-
-            string truyvan = string.Format("select Tenchiso, SUM(Luongchiso) as TongLuongchiso from Chisodinhduong join Thucdon on Chisodinhduong.Id = Thucdon.Id where MONTH(Thoigian) = {0} and YEAR(Thoigian) = {1} group by Tenchiso", month, year);
-            DataTable db = conn.LayDuLieu(truyvan);
-            dgvKhoa.DataSource = db;
-
-            if (dgvKhoa.Rows.Count > 1)
-            {
-                int x = dgvKhoa.Rows.Count;
-                string[] a = new string[x];
-                int[] b = new int[x];
-                for (int i = 0; i < dgvKhoa.Rows.Count - 1; i++)
-                {
-                    a[i] = (String)dgvKhoa.Rows[i].Cells["Tenchiso"].Value;
-                    b[i] = Convert.ToInt32(dgvKhoa.Rows[i].Cells["TongLuongchiso"].Value);
-                }
-                /*                string a = (String)dgvKhoa.Rows[0].Cells["Tenchiso"].Value;
+			if (dgvKhoa.Rows.Count > 1)
+			{
+				int x = dgvKhoa.Rows.Count;
+				string[] a = new string[x];
+				int[] b = new int[x];
+				for (int i = 0; i < dgvKhoa.Rows.Count - 1; i++)
+				{
+					a[i] = (String)dgvKhoa.Rows[i].Cells["Tenchiso"].Value;
+					b[i] = Convert.ToInt32(dgvKhoa.Rows[i].Cells["TongLuongchiso"].Value);
+				}
+				/*                string a = (String)dgvKhoa.Rows[0].Cells["Tenchiso"].Value;
                                 int b = Convert.ToInt32(dgvKhoa.Rows[0].Cells["TongLuongchiso"].Value);
 
                                 string c = (String)dgvKhoa.Rows[1].Cells["Tenchiso"].Value;
                                 int d = Convert.ToInt32(dgvKhoa.Rows[1].Cells["Tongluongchiso"].Value);*/
 
-                chartKhoa.Series.Clear();
+				chartKhoa.Series.Clear();
 
-                /*Series series1 = new Series(a);
+				/*Series series1 = new Series(a);
                 series1.Points.AddXY(a, b);
 
                 Series series2 = new Series(c);
@@ -101,20 +60,24 @@ namespace HealthyApp
                 chartKhoa.Series.Add(series1);
                 chartKhoa.Series.Add(series2);*/
 
-                Series[] series = new Series[x];
-                for (int i = 0; i < dgvKhoa.Rows.Count - 1; i++)
-                {
-                    series[i] = new Series(a[i]);
-                    series[i].Points.AddXY(a[i], b[i]);
-                    chartKhoa.Series.Add(series[i]);
-                    /*series[i] = new Series(a[i]);
+				Series[] series = new Series[x];
+				for (int i = 0; i < dgvKhoa.Rows.Count - 1; i++)
+				{
+					series[i] = new Series(a[i]);
+					series[i].Points.AddXY(a[i], b[i]);
+					chartKhoa.Series.Add(series[i]);
+					/*series[i] = new Series(a[i]);
                     series[i].Points.AddXY(a[i], b[i]);
                     chartKhoa.Series.Add(series[i]);*/
-                }
+				}
 
-            }
+			}
 
-        }
-    }
->>>>>>> e414d5095700ca9d2723ad04cc04cdddf04a45b3
+		}
+
+		private void Baocao_Load(object sender, EventArgs e)
+		{
+			dgvKhoa.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+		}
+	}
 }
