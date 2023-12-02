@@ -101,21 +101,24 @@ namespace HealthyApp
 		String type = "0";
 		private void dataGridNguyenLieu_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			dgvclick();
-			dataGridNguyenLieu.BorderStyle = BorderStyle.FixedSingle;
-			buttonreload();
-			buttonThem.Enabled = true;
-			numericSoluong.Enabled = true;
-			title = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
-			if ((string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Type"].Value == "1")
+			if (e.RowIndex >= 0)
 			{
-				type = "1";
+				dgvclick();
+				dataGridNguyenLieu.BorderStyle = BorderStyle.FixedSingle;
+				buttonreload();
+				buttonThem.Enabled = true;
+				numericSoluong.Enabled = true;
+				title = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
+				if ((string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Type"].Value == "1")
+				{
+					type = "1";
+				}
+				else
+				{
+					type = "0";
+				}
+				chitietload(title, type);
 			}
-			else
-			{
-				type = "0";
-			}
-			chitietload(title, type);
 		}
 		int Index;
 		private void dataGridThucdon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -212,7 +215,7 @@ namespace HealthyApp
 				ghichu = TextBoxGhichu.Text;
 				tennguyenlieu = title;
 				soluong = Convert.ToInt32(numericSoluong.Value);
-				String truyvan = string.Format("INSERT INTO Thucdon(Thoigian, Buaan, Ghichu, Tennguyenlieu, Soluong, Type, Taikhoan)VALUES ('{0}', '{1}', '{2}', N'{3}', {4}, {5}, '{6}');"
+				String truyvan = string.Format("INSERT INTO Thucdon(Thoigian, Buaan, Ghichu, Tennguyenlieu, Soluong, Type, Taikhoan)VALUES (N'{0}', N'{1}', N'{2}', N'{3}', {4}, {5}, N'{6}');"
 					, thoigian, buaan, ghichu, tennguyenlieu, soluong, type, Tk);
 				conn.Thucthi(truyvan);
 				buttonLammoi_Click(sender, e);

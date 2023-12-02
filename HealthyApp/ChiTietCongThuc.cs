@@ -209,11 +209,11 @@ namespace HealthyApp
 		private void dataGridNguyenLieu_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
 
-			buttonThem.Enabled = true;
-			buttonSua.Enabled = false;
-			buttonXoa.Enabled = false;
 			if (e.RowIndex >= 0)
 			{
+				buttonThem.Enabled = true;
+				buttonSua.Enabled = false;
+				buttonXoa.Enabled = false;
 				id_nguyenlieu = Convert.ToString(dataGridNguyenLieu.Rows[e.RowIndex].Cells["Id"].Value);
 				numericSoluong.Value = 1;
 				String nguyenlieu = (string)dataGridNguyenLieu.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
@@ -258,11 +258,11 @@ namespace HealthyApp
 
 		private void dataGridNguyenlieuCT_CellClick(object sender, DataGridViewCellEventArgs e)
 		{
-			buttonThem.Enabled = false;
-			buttonSua.Enabled = true;
-			buttonXoa.Enabled = true;
 			if (e.RowIndex >= 0)
 			{
+				buttonThem.Enabled = false;
+				buttonSua.Enabled = true;
+				buttonXoa.Enabled = true;
 				id_nguyenlieu = Convert.ToString(dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Id_nguyenlieu"].Value);
 				String nguyenlieu = (string)dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Tennguyenlieu"].Value;
 				numericSoluong.Value = Convert.ToDecimal(dataGridNguyenlieuCT.Rows[e.RowIndex].Cells["Soluong"].Value);

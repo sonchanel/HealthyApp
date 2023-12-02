@@ -72,7 +72,7 @@
 			dataGridNguyenLieu.RowTemplate.Height = 25;
 			dataGridNguyenLieu.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dataGridNguyenLieu.Size = new Size(270, 272);
-			dataGridNguyenLieu.TabIndex = 0;
+			dataGridNguyenLieu.TabIndex = 14;
 			dataGridNguyenLieu.CellClick += dataGridNguyenLieu_CellClick;
 			// 
 			// dataGridChitiet
@@ -90,7 +90,7 @@
 			dataGridChitiet.RowTemplate.Height = 25;
 			dataGridChitiet.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 			dataGridChitiet.Size = new Size(617, 150);
-			dataGridChitiet.TabIndex = 1;
+			dataGridChitiet.TabIndex = 15;
 			dataGridChitiet.CellClick += dataGridChitiet_CellClick;
 			// 
 			// textBoxTennguyenlieu
@@ -98,7 +98,7 @@
 			textBoxTennguyenlieu.Location = new Point(108, 77);
 			textBoxTennguyenlieu.Name = "textBoxTennguyenlieu";
 			textBoxTennguyenlieu.Size = new Size(164, 23);
-			textBoxTennguyenlieu.TabIndex = 2;
+			textBoxTennguyenlieu.TabIndex = 0;
 			// 
 			// label1
 			// 
@@ -114,7 +114,7 @@
 			buttonTaomoi.Location = new Point(12, 143);
 			buttonTaomoi.Name = "buttonTaomoi";
 			buttonTaomoi.Size = new Size(75, 23);
-			buttonTaomoi.TabIndex = 4;
+			buttonTaomoi.TabIndex = 2;
 			buttonTaomoi.Text = "Tạo mới";
 			buttonTaomoi.UseVisualStyleBackColor = true;
 			buttonTaomoi.Click += button1_Click;
@@ -133,7 +133,7 @@
 			textBoxTenchiso.Location = new Point(99, 50);
 			textBoxTenchiso.Name = "textBoxTenchiso";
 			textBoxTenchiso.Size = new Size(164, 23);
-			textBoxTenchiso.TabIndex = 5;
+			textBoxTenchiso.TabIndex = 6;
 			// 
 			// label3
 			// 
@@ -165,14 +165,14 @@
 			textBoxDonvi.Location = new Point(108, 106);
 			textBoxDonvi.Name = "textBoxDonvi";
 			textBoxDonvi.Size = new Size(164, 23);
-			textBoxDonvi.TabIndex = 9;
+			textBoxDonvi.TabIndex = 1;
 			// 
 			// buttonLammoi
 			// 
 			buttonLammoi.Location = new Point(255, 143);
 			buttonLammoi.Name = "buttonLammoi";
 			buttonLammoi.Size = new Size(75, 23);
-			buttonLammoi.TabIndex = 11;
+			buttonLammoi.TabIndex = 5;
 			buttonLammoi.Text = "Làm mới";
 			buttonLammoi.UseVisualStyleBackColor = true;
 			buttonLammoi.Click += button2_Click;
@@ -182,7 +182,7 @@
 			buttonThemChitiet.Location = new Point(3, 148);
 			buttonThemChitiet.Name = "buttonThemChitiet";
 			buttonThemChitiet.Size = new Size(75, 23);
-			buttonThemChitiet.TabIndex = 12;
+			buttonThemChitiet.TabIndex = 9;
 			buttonThemChitiet.Text = "Thêm";
 			buttonThemChitiet.UseVisualStyleBackColor = true;
 			buttonThemChitiet.Click += buttonThem_Click;
@@ -192,7 +192,7 @@
 			buttonSuaChitiet.Location = new Point(84, 148);
 			buttonSuaChitiet.Name = "buttonSuaChitiet";
 			buttonSuaChitiet.Size = new Size(75, 23);
-			buttonSuaChitiet.TabIndex = 13;
+			buttonSuaChitiet.TabIndex = 10;
 			buttonSuaChitiet.Text = "Cập nhật";
 			buttonSuaChitiet.UseVisualStyleBackColor = true;
 			buttonSuaChitiet.Click += buttonSua_Click;
@@ -202,7 +202,7 @@
 			buttonXoaChitiet.Location = new Point(165, 148);
 			buttonXoaChitiet.Name = "buttonXoaChitiet";
 			buttonXoaChitiet.Size = new Size(75, 23);
-			buttonXoaChitiet.TabIndex = 14;
+			buttonXoaChitiet.TabIndex = 11;
 			buttonXoaChitiet.Text = "Xóa";
 			buttonXoaChitiet.UseVisualStyleBackColor = true;
 			buttonXoaChitiet.Click += buttonXoa_Click;
@@ -221,7 +221,7 @@
 			textBoxDonvichiso.Location = new Point(99, 108);
 			textBoxDonvichiso.Name = "textBoxDonvichiso";
 			textBoxDonvichiso.Size = new Size(164, 23);
-			textBoxDonvichiso.TabIndex = 15;
+			textBoxDonvichiso.TabIndex = 8;
 			// 
 			// label6
 			// 
@@ -249,7 +249,7 @@
 			textBoxTimkiem.Name = "textBoxTimkiem";
 			textBoxTimkiem.PlaceholderText = "Tìm kiếm";
 			textBoxTimkiem.Size = new Size(270, 23);
-			textBoxTimkiem.TabIndex = 19;
+			textBoxTimkiem.TabIndex = 13;
 			textBoxTimkiem.TextChanged += textBox1_TextChanged;
 			// 
 			// buttonXoaNguyenLieu
@@ -257,7 +257,7 @@
 			buttonXoaNguyenLieu.Location = new Point(174, 143);
 			buttonXoaNguyenLieu.Name = "buttonXoaNguyenLieu";
 			buttonXoaNguyenLieu.Size = new Size(75, 23);
-			buttonXoaNguyenLieu.TabIndex = 21;
+			buttonXoaNguyenLieu.TabIndex = 4;
 			buttonXoaNguyenLieu.Text = "Xóa";
 			buttonXoaNguyenLieu.UseVisualStyleBackColor = true;
 			buttonXoaNguyenLieu.Click += buttonXoaNguyenLieu_Click;
@@ -267,7 +267,7 @@
 			buttonSuaNguyenLieu.Location = new Point(93, 143);
 			buttonSuaNguyenLieu.Name = "buttonSuaNguyenLieu";
 			buttonSuaNguyenLieu.Size = new Size(75, 23);
-			buttonSuaNguyenLieu.TabIndex = 20;
+			buttonSuaNguyenLieu.TabIndex = 3;
 			buttonSuaNguyenLieu.Text = "Cập nhật";
 			buttonSuaNguyenLieu.UseVisualStyleBackColor = true;
 			buttonSuaNguyenLieu.Click += buttonSuaNguyenLieu_Click;
@@ -277,7 +277,7 @@
 			buttonLammoichiso.Location = new Point(246, 148);
 			buttonLammoichiso.Name = "buttonLammoichiso";
 			buttonLammoichiso.Size = new Size(75, 23);
-			buttonLammoichiso.TabIndex = 22;
+			buttonLammoichiso.TabIndex = 12;
 			buttonLammoichiso.Text = "Làm mới";
 			buttonLammoichiso.UseVisualStyleBackColor = true;
 			buttonLammoichiso.Click += buttonLammoichiso_Click;
@@ -298,7 +298,7 @@
 			panelChiso.Location = new Point(12, 172);
 			panelChiso.Name = "panelChiso";
 			panelChiso.Size = new Size(341, 177);
-			panelChiso.TabIndex = 23;
+			panelChiso.TabIndex = 6;
 			panelChiso.Paint += panel1_Paint;
 			// 
 			// NguyenLieu
