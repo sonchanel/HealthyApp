@@ -275,3 +275,7 @@ D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windo
 D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.genruntimeconfig.cache
 D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\ref\HealthyApp.dll
 D:\ShinZ\DoAnLTnet\githubcode\HealthyAppWindow\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.LichSuXemChiSoCoThe.resources
+D:\Study\Đồ án\Đồ án lập trình .Net\HealthyApp\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
+D:\Study\Đồ án\Đồ án lập trình .Net\HealthyApp\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll
+D:\Study\Đồ án\Đồ án lập trình .Net\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.LichSuXemChiSoCoThe.resources
+D:\Study\Đồ án\Đồ án lập trình .Net\HealthyApp\obj\Debug\net6.0-windows\HealthyApp.NguyenLieu.resources
