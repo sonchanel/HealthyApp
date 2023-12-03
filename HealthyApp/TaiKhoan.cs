@@ -161,7 +161,7 @@ namespace HealthyApp
         {
             if (textBoxHoTen.Text.Length > 0 && dateTimePickerNgaySinh.Value < DateTime.Now)
             {
-                string truyvan = $"Update Taikhoan SET Hoten = '{textBoxHoTen.Text}', Ngaysinh = '{dateTimePickerNgaySinh.Value}', Email = '{textBoxEmail.Text}', SDT = '{textBoxSDT.Text}' WHERE Taikhoan = '{labelTaiKhoan.Text}'";
+                string truyvan = $"Update Taikhoan SET Hoten = N'{textBoxHoTen.Text}', Ngaysinh = '{dateTimePickerNgaySinh.Value}', Email = N'{textBoxEmail.Text}', SDT = '{textBoxSDT.Text}' WHERE Taikhoan = '{labelTaiKhoan.Text}'";
                 if (conn.Thucthi(truyvan))
                 {
                     MessageBox.Show("Đã cập nhập thành công", "Thông báo");
